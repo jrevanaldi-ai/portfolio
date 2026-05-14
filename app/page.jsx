@@ -212,7 +212,7 @@ export default function Home() {
             <m.span className="badge" variants={fadeUp}>
               [17 year old developer / 4 years experience]
             </m.span>
-            <m.h1 variants={fadeUp}>Saya membangun digital worlds, media platforms, dan game systems.</m.h1>
+            <m.h1 variants={fadeUp}>I build digital worlds, media platforms, and game systems.</m.h1>
             <m.p variants={fadeUp}>
               Saya adalah developer berusia 17 tahun dengan 4 tahun pengalaman, menguasai
               JavaScript, TypeScript, Golang, dan Rust untuk membangun web platform, hiburan
