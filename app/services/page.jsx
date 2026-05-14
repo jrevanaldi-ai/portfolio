@@ -1,3 +1,4 @@
+import AppSidebar from "../AppSidebar";
 import { MotionCard, RevealSection } from "../MotionBlocks";
 
 const servicePlans = [
@@ -43,10 +44,11 @@ const serviceRows = [
 ];
 
 const serviceNavItems = [
+  { href: "#top", label: "Top" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#how-it-works", label: "Flow" },
   { href: "/", label: "Portfolio" },
   { href: "/qna", label: "QnA" },
-  { href: "/#work", label: "Work" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 export const metadata = {
@@ -58,7 +60,8 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <header className="site-nav services-nav">
+      <AppSidebar active="services" />
+      <header className="site-nav services-nav" id="top">
         <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
           <span>NT</span>
           <small>services</small>
@@ -103,7 +106,7 @@ export default function ServicesPage() {
           </div>
         </RevealSection>
 
-        <RevealSection className="pricing-section" ariaLabel="Harga jasa coding">
+        <RevealSection className="pricing-section" id="pricing" ariaLabel="Harga jasa coding">
           <div className="section-head">
             <div>
               <p className="section-label">[pricing plans]</p>
@@ -137,7 +140,7 @@ export default function ServicesPage() {
           </div>
         </RevealSection>
 
-        <RevealSection className="content-section service-notes">
+        <RevealSection className="content-section service-notes" id="how-it-works">
           <p className="section-label">[how it works]</p>
           <div className="list-block compact">
             {serviceRows.map(([marker, label, value]) => (

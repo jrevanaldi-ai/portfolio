@@ -1,3 +1,4 @@
+import AppSidebar from "../AppSidebar";
 import AnimatedAccordion from "../AnimatedAccordion";
 import { RevealSection } from "../MotionBlocks";
 import { FiFile, FiFileText, FiFolder } from "react-icons/fi";
@@ -77,9 +78,13 @@ const termsItems = [
 ];
 
 const qnaNavItems = [
+  { href: "#top", label: "Top" },
+  { href: "#checklist", label: "Checklist" },
+  { href: "#project-reference", label: "Project" },
+  { href: "#questions", label: "QnA" },
+  { href: "#terms", label: "S&K" },
   { href: "/", label: "Portfolio" },
   { href: "/services", label: "Services" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 export const metadata = {
@@ -139,7 +144,8 @@ function FileItem({ children, gitStatus, icon: Icon = FiFile }) {
 export default function QnaPage() {
   return (
     <>
-      <header className="site-nav services-nav">
+      <AppSidebar active="qna" />
+      <header className="site-nav services-nav" id="top">
         <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
           <span>NT</span>
           <small>qna</small>
@@ -181,7 +187,7 @@ export default function QnaPage() {
           </div>
         </RevealSection>
 
-        <RevealSection className="guide-section">
+        <RevealSection className="guide-section" id="checklist">
           <div className="section-head">
             <div>
               <p className="section-label">[order checklist]</p>
@@ -271,13 +277,13 @@ export default function QnaPage() {
           </div>
         </RevealSection>
 
-        <RevealSection className="guide-section">
+        <RevealSection className="guide-section" id="questions">
           <p className="section-label">[qna]</p>
           <h2>Pertanyaan umum.</h2>
           <AnimatedAccordion items={qnaItems} label="Pertanyaan umum jasa coding" />
         </RevealSection>
 
-        <RevealSection className="guide-section guide-last">
+        <RevealSection className="guide-section guide-last" id="terms">
           <p className="section-label">[s&k]</p>
           <h2>Syarat dan ketentuan.</h2>
           <AnimatedAccordion items={termsItems} label="Syarat dan ketentuan order" />

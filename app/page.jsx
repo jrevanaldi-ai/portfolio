@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { m, useReducedMotion } from "framer-motion";
+import AppSidebar from "./AppSidebar";
 import {
   SiDocker,
   SiExpress,
@@ -22,6 +23,15 @@ import {
   SiWebstorm,
 } from "react-icons/si";
 import { TbApi, TbBrandVscode } from "react-icons/tb";
+
+const navItems = [
+  { href: "#work", label: "Work" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#process", label: "Process" },
+  { href: "#contact", label: "Contact" },
+  { href: "/services", label: "Services" },
+  { href: "/qna", label: "QnA" },
+];
 
 const portfolioRows = [
   {
@@ -186,12 +196,19 @@ export default function Home() {
 
   return (
     <>
+      <AppSidebar active="portfolio" />
       <header className="site-nav">
         <a className="wordmark" href="#home" aria-label="Kembali ke beranda">
           <span>NT</span>
           <small>portfolio</small>
         </a>
-
+        <nav className="nav-links">
+          {navItems.map((item) => (
+            <a href={item.href} key={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
       </header>
 
       <main id="home">
