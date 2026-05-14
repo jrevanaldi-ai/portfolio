@@ -416,7 +416,7 @@ button {
 }
 
 .app-sidebar {
-  position: fixed;
+  position: fixed !important;
   top: 56px;
   bottom: 16px;
   left: 16px;
@@ -434,10 +434,11 @@ button {
     inset 0 1px rgba(255, 255, 255, 0.08),
     0 24px 70px rgba(0, 0, 0, 0.28);
   pointer-events: auto;
+  contain: layout paint;
 }
 
 .sidebar-backdrop {
-  position: fixed;
+  position: fixed !important;
   inset: 48px 0 0;
   z-index: 50;
   display: block;

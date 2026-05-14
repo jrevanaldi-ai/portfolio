@@ -2,6 +2,7 @@
 
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { FiBriefcase, FiHelpCircle, FiHome, FiSend, FiX } from "react-icons/fi";
 
 const sidebarGroups = [
@@ -23,9 +24,12 @@ const sidebarGroups = [
 
 export default function AppSidebar({ active }) {
   const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     function toggleSidebar() {
       setOpen((value) => !value);
     }
@@ -37,7 +41,11 @@ export default function AppSidebar({ active }) {
     };
   }, []);
 
-  return (
+  if (!mounted) {
+    return null;
+  }
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <>
@@ -94,6 +102,7 @@ export default function AppSidebar({ active }) {
           </m.aside>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
