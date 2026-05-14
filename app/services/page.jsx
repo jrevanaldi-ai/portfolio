@@ -56,6 +56,7 @@ export default function ServicesPage() {
         </a>
         <nav className="nav-links services-links">
           <a href="/">Portfolio</a>
+          <a href="/qna">QnA</a>
           <a href="/#work">Work</a>
           <a href="/#contact">Contact</a>
         </nav>
@@ -74,10 +75,13 @@ export default function ServicesPage() {
               project, bisnis, dashboard internal, media platform, sampai prototype game.
             </p>
             <div className="hero-actions">
-              <a className="button primary" href="mailto:jrevanaldi@gmail.com">
+              <a className="button primary" href="/qna">
+                Read before order
+              </a>
+              <a className="button secondary" href="mailto:jrevanaldi@gmail.com">
                 Request quotation
               </a>
-              <a className="button secondary" href="https://t.me/Nathan" target="_blank" rel="noreferrer">
+              <a className="button secondary" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
                 Telegram
               </a>
             </div>
@@ -140,8 +144,8 @@ export default function ServicesPage() {
       <footer className="footer">
         <nav>
           <a href="/">Portfolio</a>
+          <a href="/qna">QnA</a>
           <a href="/#work">Work</a>
-          <a href="/#contact">Contact</a>
           <a href="mailto:jrevanaldi@gmail.com">Email</a>
         </nav>
         <div>

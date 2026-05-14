@@ -1,5 +1,6 @@
 import "./globals.css";
 import BubbleBackground from "./BubbleBackground";
+import WelcomeIntro from "./WelcomeIntro";
 
 export const metadata = {
   title: "Nathan | Developer Portfolio",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="id">
       <body>
         <BubbleBackground />
+        <WelcomeIntro />
         {children}
       </body>
     </html>

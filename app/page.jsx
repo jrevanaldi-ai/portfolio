@@ -26,6 +26,7 @@ const navItems = [
   ["#work", "Work"],
   ["#expertise", "Expertise"],
   ["/services", "Services"],
+  ["/qna", "QnA"],
   ["#contact", "Contact"],
 ];
 
@@ -356,10 +357,10 @@ export default function Home() {
               </a>
               <a
                 className="icon-link"
-                href="https://t.me/Nathan"
+                href="https://t.me/AstraluneTeam2"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Telegram Nathan"
+                aria-label="Telegram Astralune Team"
               >
                 <TelegramIcon />
               </a>
@@ -377,6 +378,7 @@ export default function Home() {
           <a href="#work">Work</a>
           <a href="#expertise">Expertise</a>
           <a href="/services">Services</a>
+          <a href="/qna">QnA</a>
           <a href="#contact">Contact</a>
         </nav>
         <div>

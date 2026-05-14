@@ -1,0 +1,206 @@
+const orderChecklist = [
+  {
+    title: "Siapkan tujuan project",
+    content:
+      "Tulis project ini dibuat untuk apa, siapa target penggunanya, dan hasil akhir yang kamu harapkan. Contoh: landing page bisnis, dashboard admin, aplikasi member, atau prototype game.",
+  },
+  {
+    title: "Siapkan fitur utama",
+    content:
+      "Buat daftar fitur wajib dan fitur tambahan. Fitur wajib diprioritaskan untuk estimasi harga dan waktu, fitur tambahan bisa masuk tahap lanjutan jika scope terlalu besar.",
+  },
+  {
+    title: "Siapkan referensi tampilan",
+    content:
+      "Kirim contoh website, aplikasi, warna, layout, atau style yang kamu suka. Referensi membantu proses desain lebih cepat dan mengurangi revisi yang tidak perlu.",
+  },
+  {
+    title: "Siapkan konten dan akses",
+    content:
+      "Untuk website, siapkan teks, logo, gambar, link sosial, domain, dan hosting jika sudah ada. Untuk aplikasi, siapkan contoh data, flow bisnis, dan kebutuhan role user.",
+  },
+];
+
+const qnaItems = [
+  {
+    title: "Bagaimana cara mulai order?",
+    content:
+      "Baca checklist dulu, lalu kirim ringkasan project lewat Telegram atau email. Setelah scope jelas, saya berikan estimasi harga, waktu pengerjaan, dan urutan milestone.",
+  },
+  {
+    title: "Apakah harga bisa berubah?",
+    content:
+      "Bisa, kalau scope bertambah dari kesepakatan awal. Harga awal dihitung dari fitur, kompleksitas UI, integrasi, database, auth, dan kebutuhan deploy.",
+  },
+  {
+    title: "Apakah bisa request revisi?",
+    content:
+      "Bisa. Revisi berlaku untuk penyesuaian sesuai scope awal. Perubahan besar seperti tambah fitur baru, ubah flow utama, atau redesign penuh dihitung sebagai scope tambahan.",
+  },
+  {
+    title: "Berapa lama pengerjaan?",
+    content:
+      "Tergantung scope. Landing page sederhana bisa lebih cepat, sedangkan aplikasi, dashboard, dan game prototype butuh estimasi khusus setelah kebutuhan dibahas.",
+  },
+  {
+    title: "Apakah bisa bantu deploy?",
+    content:
+      "Bisa. Saya bisa bantu deploy-ready handoff atau deploy langsung jika akses dan platform sudah jelas. Biaya domain, hosting, database, dan layanan pihak ketiga ditanggung client.",
+  },
+];
+
+const termsItems = [
+  {
+    title: "Pembayaran dan mulai kerja",
+    content:
+      "Project mulai dikerjakan setelah scope disetujui dan pembayaran awal dilakukan sesuai kesepakatan. Sisa pembayaran dilakukan sebelum final handoff atau deploy final.",
+  },
+  {
+    title: "Scope harus jelas",
+    content:
+      "Semua fitur, halaman, integrasi, dan deliverable harus disepakati di awal. Request di luar scope akan dibuatkan estimasi tambahan sebelum dikerjakan.",
+  },
+  {
+    title: "Materi dari client",
+    content:
+      "Client bertanggung jawab menyediakan konten, asset, akun, API key, domain, hosting, dan data yang diperlukan. Keterlambatan materi bisa mempengaruhi timeline.",
+  },
+  {
+    title: "Final handoff",
+    content:
+      "Setelah project selesai dan pembayaran lunas, source code atau hasil deploy diserahkan sesuai kesepakatan. Maintenance setelah handoff dihitung terpisah jika tidak termasuk paket.",
+  },
+];
+
+export const metadata = {
+  title: "QnA & S&K Order | Nathan",
+  description:
+    "Panduan QnA, checklist, dan syarat ketentuan sebelum order jasa coding website, aplikasi, atau game.",
+};
+
+function Accordion({ children, label }) {
+  return (
+    <div className="accordion" aria-label={label}>
+      {children}
+    </div>
+  );
+}
+
+function AccordionItem({ title, children, defaultOpen = false }) {
+  return (
+    <details className="accordion-item" open={defaultOpen}>
+      <summary className="accordion-button">
+        <span>{title}</span>
+        <span className="accordion-arrow" aria-hidden="true">
+          +
+        </span>
+      </summary>
+      <div className="accordion-panel">
+        <p>{children}</p>
+      </div>
+    </details>
+  );
+}
+
+export default function QnaPage() {
+  return (
+    <>
+      <header className="site-nav services-nav">
+        <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
+          <span>NT</span>
+          <small>qna</small>
+        </a>
+        <nav className="nav-links services-links">
+          <a href="/">Portfolio</a>
+          <a href="/services">Services</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <a className="button primary nav-cta" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
+          Order
+        </a>
+      </header>
+
+      <main>
+        <section className="guide-hero">
+          <div>
+            <span className="badge">[read before order]</span>
+            <h1>QnA dan S&K sebelum mulai project.</h1>
+            <p>
+              Baca bagian ini dulu sebelum order supaya scope, harga, timeline, revisi, dan
+              kebutuhan project jelas dari awal.
+            </p>
+            <div className="hero-actions">
+              <a className="button primary" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
+                Order via Telegram
+              </a>
+              <a className="button secondary" href="/services">
+                View pricing
+              </a>
+            </div>
+          </div>
+          <div className="guide-summary" aria-label="Order summary">
+            <span>[before contact]</span>
+            <strong>Brief. Scope. Timeline. Deal.</strong>
+            <p>Semakin jelas brief awal, semakin cepat estimasi dan pengerjaan bisa dimulai.</p>
+          </div>
+        </section>
+
+        <section className="guide-section">
+          <div className="section-head">
+            <div>
+              <p className="section-label">[order checklist]</p>
+              <h2>Yang perlu disiapkan.</h2>
+            </div>
+            <a className="inline-link" href="mailto:jrevanaldi@gmail.com">
+              email brief
+            </a>
+          </div>
+          <Accordion label="Checklist sebelum order">
+            {orderChecklist.map((item, index) => (
+              <AccordionItem title={item.title} key={item.title} defaultOpen={index === 0}>
+                {item.content}
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </section>
+
+        <section className="guide-section">
+          <p className="section-label">[qna]</p>
+          <h2>Pertanyaan umum.</h2>
+          <Accordion label="Pertanyaan umum jasa coding">
+            {qnaItems.map((item) => (
+              <AccordionItem title={item.title} key={item.title}>
+                {item.content}
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </section>
+
+        <section className="guide-section guide-last">
+          <p className="section-label">[s&k]</p>
+          <h2>Syarat dan ketentuan.</h2>
+          <Accordion label="Syarat dan ketentuan order">
+            {termsItems.map((item) => (
+              <AccordionItem title={item.title} key={item.title}>
+                {item.content}
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <nav>
+          <a href="/">Portfolio</a>
+          <a href="/services">Services</a>
+          <a href="/#work">Work</a>
+          <a href="mailto:jrevanaldi@gmail.com">Email</a>
+        </nav>
+        <div>
+          <span>&copy;2026 Nathan</span>
+          <a href="/services">Back to services</a>
+        </div>
+      </footer>
+    </>
+  );
+}
