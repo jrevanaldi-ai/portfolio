@@ -63,6 +63,13 @@ const stackGroups = [
       ["React", SiReact],
       ["Node.js", SiNodedotjs],
       ["Express", SiExpress],
+      ["Gin Gonic", SiGo],
+      ["Echo", SiGo],
+      ["Fiber", SiGo],
+      ["Actix", SiRust],
+      ["Rocket", SiRust],
+      ["Leptos", SiRust],
+      ["Axum", SiRust],
     ],
   },
   {
@@ -280,7 +287,7 @@ export default function Home() {
 
           <div className="list-block">
             <div className="project-carousel" aria-label="Project carousel">
-              <div className="project-track">
+              <m.div className="project-track" drag="x" dragElastic={0.08} dragMomentum>
                 {carouselRows.map((row, index) => (
                   <a
                     className="project-slide"
@@ -297,7 +304,7 @@ export default function Home() {
                     <small>{row.meta}</small>
                   </a>
                 ))}
-              </div>
+              </m.div>
             </div>
           </div>
         </m.section>

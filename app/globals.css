@@ -815,6 +815,13 @@ h3 {
   padding: 16px 0;
   border-bottom: 1px solid var(--hairline);
   mask-image: linear-gradient(90deg, transparent, #000000 8%, #000000 92%, transparent);
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.project-carousel:active {
+  cursor: grabbing;
 }
 
 .project-track {
@@ -825,7 +832,8 @@ h3 {
 }
 
 .project-carousel:hover .project-track,
-.project-carousel:focus-within .project-track {
+.project-carousel:focus-within .project-track,
+.project-carousel:active .project-track {
   animation-play-state: paused;
 }
 
