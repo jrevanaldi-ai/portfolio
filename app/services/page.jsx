@@ -45,9 +45,27 @@ const serviceRows = [
 ];
 
 export const metadata = {
-  title: "Jasa Coding | Nathan",
+  title: "Astralune Service",
   description:
-    "Jasa coding Nathan untuk pembuatan website, aplikasi, dan game dengan paket harga profesional.",
+    "Astralune Service menyediakan jasa coding untuk pembuatan website, aplikasi, dashboard, custom system, dan prototype game.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Astralune Service",
+    description:
+      "Jasa coding website, aplikasi, dashboard, custom system, dan prototype game.",
+    url: "/services",
+    siteName: "Astralune",
+    type: "website",
+    locale: "id_ID",
+  },
+  twitter: {
+    card: "summary",
+    title: "Astralune Service",
+    description:
+      "Jasa coding website, aplikasi, dashboard, custom system, dan prototype game.",
+  },
 };
 
 export default function ServicesPage() {

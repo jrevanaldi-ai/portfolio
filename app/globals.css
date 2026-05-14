@@ -737,7 +737,7 @@ h3 {
   color: var(--success);
 }
 
-.terminal-output p:nth-child(3) {
+.terminal-output p:nth-child(4) {
   color: var(--warning);
 }
 

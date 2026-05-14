@@ -79,9 +79,27 @@ const termsItems = [
 ];
 
 export const metadata = {
-  title: "QnA & S&K Order | Nathan",
+  title: "QnA & S&K Order",
   description:
-    "Panduan QnA, checklist, dan syarat ketentuan sebelum order jasa coding website, aplikasi, atau game.",
+    "Panduan QnA, checklist, contoh struktur project, dan syarat ketentuan sebelum order Astralune Service.",
+  alternates: {
+    canonical: "/qna",
+  },
+  openGraph: {
+    title: "QnA & S&K Order | Astralune Service",
+    description:
+      "Panduan sebelum order Astralune Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.",
+    url: "/qna",
+    siteName: "Astralune",
+    type: "website",
+    locale: "id_ID",
+  },
+  twitter: {
+    card: "summary",
+    title: "QnA & S&K Order | Astralune Service",
+    description:
+      "Panduan sebelum order Astralune Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.",
+  },
 };
 
 function Files({ children }) {

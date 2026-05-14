@@ -238,6 +238,7 @@ export default function Home() {
             </div>
             <div className="terminal-output">
               <p>[+] name........ Nathan</p>
+              <p>[+] alias....... Astralune Dev</p>
               <p>[+] age......... 17</p>
               <p>[+] role........ developer</p>
               <p>[x] stack....... JS, TS, Go, Rust</p>
