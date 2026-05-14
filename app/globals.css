@@ -78,7 +78,7 @@ body > :not(.bubble-background):not(.site-nav) {
 .welcome-intro {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 2147483647;
   display: grid;
   place-items: center;
   padding: 24px;
