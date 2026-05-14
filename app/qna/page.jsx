@@ -72,6 +72,63 @@ const termsItems = [
   },
 ];
 
+const projectFiles = [
+  {
+    type: "folder",
+    name: "app",
+    status: "main",
+    children: [
+      {
+        type: "folder",
+        name: "(public)",
+        children: [
+          { type: "file", name: "page.jsx", note: "landing / homepage" },
+          { type: "file", name: "layout.jsx", note: "metadata + shell" },
+        ],
+      },
+      {
+        type: "folder",
+        name: "dashboard",
+        children: [
+          { type: "file", name: "page.jsx", note: "main dashboard" },
+          { type: "file", name: "loading.jsx", note: "loading state" },
+        ],
+      },
+      { type: "file", name: "globals.css", note: "design tokens" },
+    ],
+  },
+  {
+    type: "folder",
+    name: "components",
+    status: "reusable",
+    children: [
+      { type: "file", name: "button.jsx", note: "shared button" },
+      { type: "file", name: "modal.jsx", note: "dialog pattern" },
+      { type: "file", name: "navbar.jsx", note: "site navigation" },
+    ],
+  },
+  {
+    type: "folder",
+    name: "lib",
+    status: "logic",
+    children: [
+      { type: "file", name: "api.js", note: "API client" },
+      { type: "file", name: "auth.js", note: "auth helper" },
+      { type: "file", name: "validators.js", note: "input rules" },
+    ],
+  },
+  {
+    type: "folder",
+    name: "assets",
+    children: [
+      { type: "file", name: "logo.png", note: "brand asset" },
+      { type: "file", name: "hero.png", note: "hero visual" },
+    ],
+  },
+  { type: "file", name: "README.md", status: "handoff", note: "cara setup dan deploy" },
+  { type: "file", name: "package.json", note: "scripts project" },
+];
+
 export const metadata = {
   title: "QnA & S&K Order | Nathan",
   description:
@@ -100,6 +157,54 @@ function AccordionItem({ title, children, defaultOpen = false }) {
       </div>
     </details>
   );
+}
+
+function Files({ children }) {
+  return <div className="files-tree">{children}</div>;
+}
+
+function FolderItem({ name, status, children, defaultOpen = true }) {
+  return (
+    <details className="folder-item" open={defaultOpen}>
+      <summary className="folder-trigger">
+        <span className="file-marker">[dir]</span>
+        <span>{name}</span>
+        {status && <small>{status}</small>}
+      </summary>
+      <div className="folder-content">
+        <SubFiles>{children}</SubFiles>
+      </div>
+    </details>
+  );
+}
+
+function SubFiles({ children }) {
+  return <div className="sub-files">{children}</div>;
+}
+
+function FileItem({ name, status, note }) {
+  return (
+    <div className="file-item">
+      <span className="file-marker">[file]</span>
+      <span>{name}</span>
+      {status && <small>{status}</small>}
+      {note && <em>{note}</em>}
+    </div>
+  );
+}
+
+function ProjectFileNode({ node }) {
+  if (node.type === "folder") {
+    return (
+      <FolderItem name={node.name} status={node.status}>
+        {node.children?.map((child) => (
+          <ProjectFileNode node={child} key={`${node.name}-${child.name}`} />
+        ))}
+      </FolderItem>
+    );
+  }
+
+  return <FileItem name={node.name} status={node.status} note={node.note} />;
 }
 
 export default function QnaPage() {
@@ -162,6 +267,38 @@ export default function QnaPage() {
               </AccordionItem>
             ))}
           </Accordion>
+        </section>
+
+        <section className="guide-section" id="project-reference">
+          <div className="section-head">
+            <div>
+              <p className="section-label">[project reference]</p>
+              <h2>Contoh struktur project yang rapi.</h2>
+            </div>
+            <a className="inline-link" href="/services">
+              service plans
+            </a>
+          </div>
+          <div className="project-reference">
+            <div>
+              <p>
+                Ini contoh gambaran struktur project yang dipakai sebagai referensi saat handoff.
+                Folder dipisah berdasarkan fungsi supaya client mudah membaca, deploy, dan
+                melanjutkan pengembangan.
+              </p>
+              <div className="reference-points">
+                <span>[+] route dan halaman jelas</span>
+                <span>[+] komponen reusable dipisah</span>
+                <span>[+] logic/API tidak dicampur UI</span>
+                <span>[+] README untuk setup dan deploy</span>
+              </div>
+            </div>
+            <Files>
+              {projectFiles.map((node) => (
+                <ProjectFileNode node={node} key={node.name} />
+              ))}
+            </Files>
+          </div>
         </section>
 
         <section className="guide-section">

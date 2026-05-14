@@ -1099,6 +1099,110 @@ h3 {
   color: var(--body);
 }
 
+.project-reference {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+  gap: 24px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.project-reference p {
+  margin-bottom: 18px;
+  color: var(--body);
+}
+
+.reference-points {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  background: rgba(20, 20, 20, 0.82);
+  color: var(--body);
+}
+
+.files-tree {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  background: rgba(20, 20, 20, 0.9);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
+  font-family: "Berkeley Mono", "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular,
+    Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+}
+
+.folder-item {
+  min-width: 0;
+}
+
+.folder-trigger,
+.file-item {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 8px;
+  color: var(--body);
+  border-radius: 10px;
+}
+
+.folder-trigger {
+  cursor: pointer;
+  list-style: none;
+}
+
+.folder-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.folder-trigger:hover,
+.file-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.folder-trigger > span:nth-child(2),
+.file-item > span:nth-child(2) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.file-marker {
+  color: var(--framer-blue);
+}
+
+.folder-trigger small,
+.file-item small {
+  padding: 2px 7px;
+  color: #000000;
+  border-radius: 9999px;
+  background: var(--ink);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.file-item em {
+  color: var(--ash);
+  font-size: 12px;
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
+.folder-content {
+  padding-left: 20px;
+}
+
+.sub-files {
+  display: grid;
+  gap: 2px;
+  padding-left: 10px;
+  border-left: 1px solid var(--hairline);
+}
+
 .footer {
   padding: 32px 0;
   border-top: 1px solid var(--hairline);
@@ -1183,6 +1287,7 @@ h3 {
   .split,
   .service-hero,
   .guide-hero,
+  .project-reference,
   .contact {
     grid-template-columns: 1fr;
   }
@@ -1296,6 +1401,19 @@ h3 {
 
   .services-links {
     display: none;
+  }
+
+  .folder-trigger,
+  .file-item {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+
+  .folder-trigger small,
+  .file-item small,
+  .file-item em {
+    grid-column: 2;
+    width: max-content;
+    max-width: 100%;
   }
 
   .pricing-card {
