@@ -1160,8 +1160,15 @@ h3 {
 }
 
 .file-icon {
+  display: inline-grid;
+  place-items: center;
   color: var(--framer-blue);
-  font-size: 12px;
+  font-size: 16px;
+}
+
+.file-icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 .folder-trigger small,

@@ -1,5 +1,6 @@
 import AnimatedAccordion from "../AnimatedAccordion";
 import { RevealSection } from "../MotionBlocks";
+import { FiFile, FiFileText, FiFolder } from "react-icons/fi";
 
 const orderChecklist = [
   {
@@ -106,7 +107,9 @@ function FolderItem({ value, children, defaultOpen = true }) {
 function FolderTrigger({ children, gitStatus }) {
   return (
     <summary className="folder-trigger">
-      <span className="file-icon">dir</span>
+      <span className="file-icon" aria-hidden="true">
+        <FiFolder />
+      </span>
       <span>{children}</span>
       {gitStatus && <small data-status={gitStatus}>{gitStatus}</small>}
     </summary>
@@ -121,10 +124,12 @@ function SubFiles({ children }) {
   return <div className="sub-files">{children}</div>;
 }
 
-function FileItem({ children, gitStatus, icon = "file" }) {
+function FileItem({ children, gitStatus, icon: Icon = FiFile }) {
   return (
     <div className="file-item">
-      <span className="file-icon">{icon}</span>
+      <span className="file-icon" aria-hidden="true">
+        <Icon />
+      </span>
       <span>{children}</span>
       {gitStatus && <small data-status={gitStatus}>{gitStatus}</small>}
     </div>
@@ -260,8 +265,8 @@ export default function QnaPage() {
                 </FolderContent>
               </FolderItem>
 
-              <FileItem>README.md</FileItem>
-              <FileItem icon="json">package.json</FileItem>
+              <FileItem icon={FiFileText}>README.md</FileItem>
+              <FileItem icon={FiFileText}>package.json</FileItem>
             </Files>
           </div>
         </RevealSection>
