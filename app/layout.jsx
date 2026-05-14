@@ -4,6 +4,7 @@ import MotionProvider from "./MotionProvider";
 import WelcomeIntro from "./WelcomeIntro";
 
 const siteUrl = "https://astralune.cv";
+const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -45,14 +46,21 @@ export const metadata = {
       "Portfolio developer untuk digital worlds, media platforms, game systems, website, aplikasi, dan game.",
     url: siteUrl,
     siteName: "Astralune",
+    images: [
+      {
+        url: openGraphImage,
+        alt: "Astralune portfolio preview",
+      },
+    ],
     type: "website",
     locale: "id_ID",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Astralune",
     description:
       "Portfolio developer untuk digital worlds, media platforms, game systems, website, aplikasi, dan game.",
+    images: [openGraphImage],
   },
   robots: {
     index: true,

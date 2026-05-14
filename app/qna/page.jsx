@@ -4,6 +4,8 @@ import { RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
 import { FiFile, FiFileText, FiFolder } from "react-icons/fi";
 
+const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
+
 const orderChecklist = [
   {
     title: "Siapkan tujuan project",
@@ -91,14 +93,21 @@ export const metadata = {
       "Panduan sebelum order Astralune Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.",
     url: "/qna",
     siteName: "Astralune",
+    images: [
+      {
+        url: openGraphImage,
+        alt: "Astralune QnA preview",
+      },
+    ],
     type: "website",
     locale: "id_ID",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "QnA & S&K Order | Astralune Service",
     description:
       "Panduan sebelum order Astralune Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.",
+    images: [openGraphImage],
   },
 };
 

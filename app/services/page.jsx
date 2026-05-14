@@ -2,6 +2,8 @@ import AppSidebar from "../AppSidebar";
 import { MotionCard, RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
 
+const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
+
 const servicePlans = [
   {
     name: "Website",
@@ -57,14 +59,21 @@ export const metadata = {
       "Jasa coding website, aplikasi, dashboard, custom system, dan prototype game.",
     url: "/services",
     siteName: "Astralune",
+    images: [
+      {
+        url: openGraphImage,
+        alt: "Astralune service preview",
+      },
+    ],
     type: "website",
     locale: "id_ID",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Astralune Service",
     description:
       "Jasa coding website, aplikasi, dashboard, custom system, dan prototype game.",
+    images: [openGraphImage],
   },
 };
 
