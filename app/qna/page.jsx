@@ -1,6 +1,7 @@
 import AppSidebar from "../AppSidebar";
 import AnimatedAccordion from "../AnimatedAccordion";
 import { RevealSection } from "../MotionBlocks";
+import SidebarTrigger from "../SidebarTrigger";
 import { FiFile, FiFileText, FiFolder } from "react-icons/fi";
 
 const orderChecklist = [
@@ -77,16 +78,6 @@ const termsItems = [
   },
 ];
 
-const qnaNavItems = [
-  { href: "#top", label: "Top" },
-  { href: "#checklist", label: "Checklist" },
-  { href: "#project-reference", label: "Project" },
-  { href: "#questions", label: "QnA" },
-  { href: "#terms", label: "S&K" },
-  { href: "/", label: "Portfolio" },
-  { href: "/services", label: "Services" },
-];
-
 export const metadata = {
   title: "QnA & S&K Order | Nathan",
   description:
@@ -150,16 +141,7 @@ export default function QnaPage() {
           <span>NT</span>
           <small>qna</small>
         </a>
-        <nav className="nav-links services-links">
-          {qnaNavItems.map((item) => (
-            <a href={item.href} key={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <a className="button primary nav-cta" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
-          Order
-        </a>
+        <SidebarTrigger />
       </header>
 
       <main>

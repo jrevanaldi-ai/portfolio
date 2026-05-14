@@ -1,5 +1,6 @@
 import AppSidebar from "../AppSidebar";
 import { MotionCard, RevealSection } from "../MotionBlocks";
+import SidebarTrigger from "../SidebarTrigger";
 
 const servicePlans = [
   {
@@ -43,14 +44,6 @@ const serviceRows = [
   ["[x]", "Best for", "Website, aplikasi custom, dashboard, game prototype, dan custom project"],
 ];
 
-const serviceNavItems = [
-  { href: "#top", label: "Top" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#how-it-works", label: "Flow" },
-  { href: "/", label: "Portfolio" },
-  { href: "/qna", label: "QnA" },
-];
-
 export const metadata = {
   title: "Jasa Coding | Nathan",
   description:
@@ -66,16 +59,7 @@ export default function ServicesPage() {
           <span>NT</span>
           <small>services</small>
         </a>
-        <nav className="nav-links services-links">
-          {serviceNavItems.map((item) => (
-            <a href={item.href} key={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <a className="button primary nav-cta" href="mailto:jrevanaldi@gmail.com">
-          Start project
-        </a>
+        <SidebarTrigger />
       </header>
 
       <main>
