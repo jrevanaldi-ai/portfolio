@@ -23,14 +23,6 @@ import {
 } from "react-icons/si";
 import { TbApi, TbBrandVscode } from "react-icons/tb";
 
-const navItems = [
-  { href: "#work", label: "Work" },
-  { href: "#expertise", label: "Expertise" },
-  { href: "/services", label: "Services" },
-  { href: "/qna", label: "QnA" },
-  { href: "#contact", label: "Contact" },
-];
-
 const portfolioRows = [
   {
     marker: "[+]",
@@ -200,17 +192,6 @@ export default function Home() {
           <small>portfolio</small>
         </a>
 
-        <nav className="nav-links">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <a className="button primary nav-cta" href="/services">
-          Services
-        </a>
       </header>
 
       <main id="home">

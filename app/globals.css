@@ -328,7 +328,7 @@ button {
   top: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 16px;
   min-height: 56px;
@@ -1329,7 +1329,7 @@ h3 {
   }
 
   .site-nav {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
     align-items: start;
   }
 
