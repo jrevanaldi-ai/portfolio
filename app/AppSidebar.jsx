@@ -23,25 +23,16 @@ const sidebarGroups = [
 
 export default function AppSidebar({ active }) {
   const reduceMotion = useReducedMotion();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 850px)");
-
-    function syncSidebar(event) {
-      setOpen(!event.matches);
-    }
-
     function toggleSidebar() {
       setOpen((value) => !value);
     }
 
-    syncSidebar(mediaQuery);
-    mediaQuery.addEventListener("change", syncSidebar);
     window.addEventListener("toggle-sidebar", toggleSidebar);
 
     return () => {
-      mediaQuery.removeEventListener("change", syncSidebar);
       window.removeEventListener("toggle-sidebar", toggleSidebar);
     };
   }, []);
