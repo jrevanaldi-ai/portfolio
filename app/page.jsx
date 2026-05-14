@@ -42,6 +42,8 @@ const portfolioRows = [
   },
 ];
 
+const carouselRows = [...portfolioRows, ...portfolioRows];
+
 const stackGroups = [
   {
     title: "Bahasa Pemrograman",
@@ -279,13 +281,15 @@ export default function Home() {
           <div className="list-block">
             <div className="project-carousel" aria-label="Project carousel">
               <div className="project-track">
-                {portfolioRows.map((row) => (
+                {carouselRows.map((row, index) => (
                   <a
                     className="project-slide"
-                    key={row.label}
+                    key={`${row.label}-${index}`}
                     href={row.href}
                     target={row.href.startsWith("http") ? "_blank" : undefined}
                     rel={row.href.startsWith("http") ? "noreferrer" : undefined}
+                    aria-hidden={index >= portfolioRows.length ? "true" : undefined}
+                    tabIndex={index >= portfolioRows.length ? -1 : undefined}
                   >
                     <span>{row.marker} project</span>
                     <strong>{row.label}</strong>
