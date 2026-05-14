@@ -52,9 +52,9 @@ export default function AppSidebar({ active }) {
       <m.aside
         className={open ? "app-sidebar is-open" : "app-sidebar"}
         aria-label="Page sidebar"
-        initial={reduceMotion ? false : { opacity: 0, x: -14 }}
-        animate={reduceMotion ? undefined : { opacity: 1, x: 0 }}
-        transition={{ duration: 0.28, ease: "easeOut" }}
+        initial={false}
+        animate={reduceMotion ? undefined : { x: open ? 0 : "-120%" }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
       >
         <div className="sidebar-header">
           <a className="sidebar-brand" href="/">

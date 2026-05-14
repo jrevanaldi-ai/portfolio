@@ -188,7 +188,6 @@ export default function Home() {
 
   return (
     <>
-      <AppSidebar active="portfolio" />
       <header className="site-nav">
         <a className="wordmark" href="#home" aria-label="Kembali ke beranda">
           <span>NT</span>
@@ -196,6 +195,7 @@ export default function Home() {
         </a>
         <SidebarTrigger />
       </header>
+      <AppSidebar active="portfolio" />
 
       <main id="home">
         <m.section className="hero-shell" initial="hidden" animate="show" variants={stagger}>

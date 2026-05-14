@@ -135,7 +135,6 @@ function FileItem({ children, gitStatus, icon: Icon = FiFile }) {
 export default function QnaPage() {
   return (
     <>
-      <AppSidebar active="qna" />
       <header className="site-nav services-nav" id="top">
         <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
           <span>NT</span>
@@ -143,6 +142,7 @@ export default function QnaPage() {
         </a>
         <SidebarTrigger />
       </header>
+      <AppSidebar active="qna" />
 
       <main>
         <RevealSection className="guide-hero">

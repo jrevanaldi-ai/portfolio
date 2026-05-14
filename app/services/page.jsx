@@ -53,7 +53,6 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <AppSidebar active="services" />
       <header className="site-nav services-nav" id="top">
         <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
           <span>NT</span>
@@ -61,6 +60,7 @@ export default function ServicesPage() {
         </a>
         <SidebarTrigger />
       </header>
+      <AppSidebar active="services" />
 
       <main>
         <RevealSection className="service-hero">
