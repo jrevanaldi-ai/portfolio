@@ -24,12 +24,20 @@ const servicePlans = [
       "Untuk prototype game, sistem gameplay, UI game, atau fondasi awal project seperti RPG dan online game.",
     features: ["Game loop", "Gameplay systems", "UI / HUD", "Prototype build"],
   },
+  {
+    name: "Custom Project",
+    price: "Sesuai request",
+    tag: "Custom scope / request khusus / ide unik",
+    description:
+      "Untuk kebutuhan khusus yang tidak masuk paket standar, dibuat sesuai request, target, fitur, dan budget user.",
+    features: ["Scope fleksibel", "Fitur sesuai request", "Estimasi custom", "Diskusi kebutuhan"],
+  },
 ];
 
 const serviceRows = [
   ["[+]", "Tech stack", "JavaScript, TypeScript, Golang, Rust"],
   ["[+]", "Delivery", "Scope jelas, progress bertahap, dan hasil bisa diuji"],
-  ["[x]", "Best for", "Website, aplikasi custom, dashboard, dan game prototype"],
+  ["[x]", "Best for", "Website, aplikasi custom, dashboard, game prototype, dan custom project"],
 ];
 
 export const metadata = {
