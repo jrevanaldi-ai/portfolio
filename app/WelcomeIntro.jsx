@@ -13,17 +13,18 @@ const welcomeCode = `const visitor = {
 
 boot(visitor);`;
 
-export default function WelcomeIntro() {
-  const [visible, setVisible] = useState(false);
+export default function WelcomeIntro({ children }) {
+  const [ready, setReady] = useState(false);
   const [typed, setTyped] = useState("");
   const lines = useMemo(() => typed.split("\n"), [typed]);
 
   useEffect(() => {
     if (window.sessionStorage.getItem(SESSION_KEY) === "true") {
+      document.body.classList.remove("intro-active");
+      setReady(true);
       return undefined;
     }
 
-    setVisible(true);
     document.body.classList.add("intro-active");
 
     const typeInterval = window.setInterval(() => {
@@ -40,7 +41,7 @@ export default function WelcomeIntro() {
     const hideTimer = window.setTimeout(() => {
       window.sessionStorage.setItem(SESSION_KEY, "true");
       document.body.classList.remove("intro-active");
-      setVisible(false);
+      setReady(true);
     }, WELCOME_DURATION);
 
     return () => {
@@ -50,8 +51,8 @@ export default function WelcomeIntro() {
     };
   }, []);
 
-  if (!visible) {
-    return null;
+  if (ready) {
+    return children;
   }
 
   return (

@@ -71,9 +71,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <body>
-        <BubbleBackground />
-        <WelcomeIntro />
-        <MotionProvider>{children}</MotionProvider>
+        <WelcomeIntro>
+          <BubbleBackground />
+          <MotionProvider>{children}</MotionProvider>
+        </WelcomeIntro>
       </body>
     </html>
   );
