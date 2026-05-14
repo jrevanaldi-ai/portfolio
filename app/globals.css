@@ -433,10 +433,6 @@ button {
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.08),
     0 24px 70px rgba(0, 0, 0, 0.28);
-  pointer-events: none;
-}
-
-.app-sidebar.is-open {
   pointer-events: auto;
 }
 
