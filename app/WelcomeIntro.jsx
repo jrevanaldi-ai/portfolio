@@ -24,6 +24,7 @@ export default function WelcomeIntro() {
     }
 
     setVisible(true);
+    document.body.classList.add("intro-active");
 
     const typeInterval = window.setInterval(() => {
       setTyped((current) => {
@@ -38,12 +39,14 @@ export default function WelcomeIntro() {
 
     const hideTimer = window.setTimeout(() => {
       window.sessionStorage.setItem(SESSION_KEY, "true");
+      document.body.classList.remove("intro-active");
       setVisible(false);
     }, WELCOME_DURATION);
 
     return () => {
       window.clearInterval(typeInterval);
       window.clearTimeout(hideTimer);
+      document.body.classList.remove("intro-active");
     };
   }, []);
 

@@ -44,6 +44,10 @@ body {
   font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07", "tnum";
 }
 
+body.intro-active {
+  overflow: hidden;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -74,15 +78,14 @@ body > :not(.bubble-background) {
 .welcome-intro {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 9999;
   display: grid;
   place-items: center;
   padding: 24px;
   background:
-    radial-gradient(circle at 50% 18%, rgba(0, 153, 255, 0.24), transparent 28%),
-    rgba(9, 9, 9, 0.92);
-  backdrop-filter: blur(18px);
-  animation: welcome-out 520ms ease 4.48s forwards;
+    radial-gradient(circle at 50% 18%, rgba(0, 153, 255, 0.26), transparent 28%),
+    radial-gradient(circle at 18% 82%, rgba(221, 74, 255, 0.18), transparent 30%),
+    var(--canvas);
 }
 
 .welcome-code {
@@ -180,13 +183,6 @@ body > :not(.bubble-background) {
 @keyframes welcome-cursor {
   50% {
     opacity: 0;
-  }
-}
-
-@keyframes welcome-out {
-  to {
-    opacity: 0;
-    visibility: hidden;
   }
 }
 
