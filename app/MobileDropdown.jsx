@@ -35,9 +35,12 @@ export default function MobileDropdown({ items, label = "Menu" }) {
         type="button"
         aria-label="Open navigation menu"
         aria-expanded={open}
+        data-open={open}
         onClick={() => setOpen((value) => !value)}
       >
-        {open ? "[-]" : "[+]"}
+        <span />
+        <span />
+        <span />
       </button>
 
       {open && (
