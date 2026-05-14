@@ -43,6 +43,148 @@ body {
   font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07", "tnum";
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(18, 113, 255, 0.2), transparent 34%),
+    radial-gradient(circle at 86% 18%, rgba(221, 74, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, rgba(9, 9, 9, 0.42), var(--canvas) 78%);
+}
+
+.bubble-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  filter: blur(30px) saturate(1.18);
+  opacity: 0.82;
+}
+
+.bubble-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 9, 9, 0.34);
+}
+
+.bubble-layer {
+  position: absolute;
+  width: 42vmax;
+  height: 42vmax;
+  border-radius: 9999px;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.bubble-layer-one {
+  top: -12vmax;
+  left: -8vmax;
+  background: radial-gradient(circle, rgba(var(--bubble-one), 0.42), transparent 66%);
+  animation: bubble-drift-one 24s ease-in-out infinite alternate;
+}
+
+.bubble-layer-two {
+  right: -14vmax;
+  top: 2vmax;
+  background: radial-gradient(circle, rgba(var(--bubble-two), 0.36), transparent 68%);
+  animation: bubble-drift-two 28s ease-in-out infinite alternate;
+}
+
+.bubble-layer-three {
+  left: 28%;
+  top: 18%;
+  width: 34vmax;
+  height: 34vmax;
+  background: radial-gradient(circle, rgba(var(--bubble-three), 0.24), transparent 66%);
+  animation: bubble-drift-three 26s ease-in-out infinite alternate;
+}
+
+.bubble-layer-four {
+  left: 4%;
+  bottom: -16vmax;
+  background: radial-gradient(circle, rgba(var(--bubble-four), 0.18), transparent 64%);
+  animation: bubble-drift-four 30s ease-in-out infinite alternate;
+}
+
+.bubble-layer-five {
+  right: 8%;
+  bottom: -18vmax;
+  width: 38vmax;
+  height: 38vmax;
+  background: radial-gradient(circle, rgba(var(--bubble-five), 0.16), transparent 68%);
+  animation: bubble-drift-five 32s ease-in-out infinite alternate;
+}
+
+.bubble-layer-six {
+  right: 28%;
+  bottom: 12%;
+  width: 30vmax;
+  height: 30vmax;
+  background: radial-gradient(circle, rgba(var(--bubble-six), 0.22), transparent 66%);
+  animation: bubble-drift-six 22s ease-in-out infinite alternate;
+}
+
+.bubble-layer-cursor {
+  left: var(--pointer-x);
+  top: var(--pointer-y);
+  width: 24vmax;
+  height: 24vmax;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 62%);
+  transform: translate(-50%, -50%);
+  transition: left 700ms cubic-bezier(0.22, 1, 0.36, 1), top 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes bubble-drift-one {
+  to {
+    transform: translate3d(8vw, 10vh, 0) scale(1.12);
+  }
+}
+
+@keyframes bubble-drift-two {
+  to {
+    transform: translate3d(-12vw, 14vh, 0) scale(0.92);
+  }
+}
+
+@keyframes bubble-drift-three {
+  to {
+    transform: translate3d(10vw, -8vh, 0) scale(1.16);
+  }
+}
+
+@keyframes bubble-drift-four {
+  to {
+    transform: translate3d(14vw, -12vh, 0) scale(1.08);
+  }
+}
+
+@keyframes bubble-drift-five {
+  to {
+    transform: translate3d(-8vw, -16vh, 0) scale(1.18);
+  }
+}
+
+@keyframes bubble-drift-six {
+  to {
+    transform: translate3d(-12vw, 8vh, 0) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-layer {
+    animation: none;
+  }
+
+  .bubble-layer-cursor {
+    transition: none;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

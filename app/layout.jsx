@@ -1,4 +1,5 @@
 import "./globals.css";
+import BubbleBackground from "./BubbleBackground";
 
 export const metadata = {
   title: "Nathan | Developer Portfolio",
@@ -9,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
-      <body>{children}</body>
+      <body>
+        <BubbleBackground />
+        {children}
+      </body>
     </html>
   );
 }
