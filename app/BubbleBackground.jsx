@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const bubbleColors = {
   first: "18,113,255",
@@ -12,27 +12,48 @@ const bubbleColors = {
 };
 
 export default function BubbleBackground({ interactive = true }) {
-  const [position, setPosition] = useState({ x: 50, y: 48 });
+  const backgroundRef = useRef(null);
 
   useEffect(() => {
     if (!interactive) {
       return undefined;
     }
 
-    function handlePointerMove(event) {
-      setPosition({
-        x: (event.clientX / window.innerWidth) * 100,
-        y: (event.clientY / window.innerHeight) * 100,
-      });
+    let frame = 0;
+    let targetX = 50;
+    let targetY = 48;
+    let currentX = 50;
+    let currentY = 48;
+
+    function animatePointer() {
+      currentX += (targetX - currentX) * 0.1;
+      currentY += (targetY - currentY) * 0.1;
+
+      if (backgroundRef.current) {
+        backgroundRef.current.style.setProperty("--pointer-x", `${currentX}%`);
+        backgroundRef.current.style.setProperty("--pointer-y", `${currentY}%`);
+      }
+
+      frame = window.requestAnimationFrame(animatePointer);
     }
 
+    function handlePointerMove(event) {
+      targetX = (event.clientX / window.innerWidth) * 100;
+      targetY = (event.clientY / window.innerHeight) * 100;
+    }
+
+    frame = window.requestAnimationFrame(animatePointer);
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
 
-    return () => window.removeEventListener("pointermove", handlePointerMove);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("pointermove", handlePointerMove);
+    };
   }, [interactive]);
 
   return (
     <div
+      ref={backgroundRef}
       className="bubble-background"
       aria-hidden="true"
       style={{
@@ -42,8 +63,8 @@ export default function BubbleBackground({ interactive = true }) {
         "--bubble-four": bubbleColors.fourth,
         "--bubble-five": bubbleColors.fifth,
         "--bubble-six": bubbleColors.sixth,
-        "--pointer-x": `${position.x}%`,
-        "--pointer-y": `${position.y}%`,
+        "--pointer-x": "50%",
+        "--pointer-y": "48%",
       }}
     >
       <div className="bubble-layer bubble-layer-one" />

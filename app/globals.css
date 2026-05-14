@@ -35,6 +35,7 @@ body {
   overflow-x: hidden;
   color: var(--ink);
   background: var(--canvas);
+  isolation: isolate;
   font-family: Inter, "Inter Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   font-size: 16px;
@@ -47,7 +48,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -3;
+  z-index: 0;
   pointer-events: none;
   background:
     radial-gradient(circle at 18% 12%, rgba(18, 113, 255, 0.2), transparent 34%),
@@ -58,11 +59,16 @@ body::before {
 .bubble-background {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
   filter: blur(30px) saturate(1.18);
-  opacity: 0.82;
+  opacity: 0.92;
+}
+
+body > :not(.bubble-background) {
+  position: relative;
+  z-index: 1;
 }
 
 .bubble-background::after {
@@ -132,11 +138,13 @@ body::before {
 .bubble-layer-cursor {
   left: var(--pointer-x);
   top: var(--pointer-y);
-  width: 24vmax;
-  height: 24vmax;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 62%);
+  width: 28vmax;
+  height: 28vmax;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 54%),
+    radial-gradient(circle, rgba(var(--bubble-three), 0.22), transparent 68%);
   transform: translate(-50%, -50%);
-  transition: left 700ms cubic-bezier(0.22, 1, 0.36, 1), top 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: bubble-cursor-pulse 8s ease-in-out infinite alternate;
 }
 
 @keyframes bubble-drift-one {
@@ -172,6 +180,12 @@ body::before {
 @keyframes bubble-drift-six {
   to {
     transform: translate3d(-12vw, 8vh, 0) scale(0.96);
+  }
+}
+
+@keyframes bubble-cursor-pulse {
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
   }
 }
 
