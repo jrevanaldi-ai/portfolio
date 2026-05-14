@@ -123,7 +123,7 @@ function AsciiLogo() {
 ██║ ╚████║   ██║
 ╚═╝  ╚═══╝   ╚═╝
 
-NATHAN / SOFTWARE ENGINEER`}
+NATHAN / DEVELOPER`}
     </pre>
   );
 }
@@ -198,11 +198,11 @@ export default function Home() {
         <m.section className="hero-shell" initial="hidden" animate="show" variants={stagger}>
           <div className="hero-copy">
             <m.span className="badge" variants={fadeUp}>
-              [17 year old software engineer / 4 years experience]
+              [17 year old developer / 4 years experience]
             </m.span>
             <m.h1 variants={fadeUp}>Saya membangun digital worlds, media platforms, dan game systems.</m.h1>
             <m.p variants={fadeUp}>
-              Saya adalah software engineer berusia 17 tahun dengan 4 tahun pengalaman, menguasai
+              Saya adalah developer berusia 17 tahun dengan 4 tahun pengalaman, menguasai
               JavaScript, TypeScript, Golang, dan Rust untuk membangun web platform, hiburan
               digital, dan game MMORPG.
             </m.p>
@@ -227,7 +227,7 @@ export default function Home() {
             <div className="terminal-output">
               <p>[+] name........ Nathan</p>
               <p>[+] age......... 17</p>
-              <p>[+] role........ software engineer</p>
+              <p>[+] role........ developer</p>
               <p>[x] stack....... JS, TS, Go, Rust</p>
             </div>
             <div className="terminal-hints">
@@ -240,7 +240,7 @@ export default function Home() {
         <m.section className="metric-grid" aria-label="Experience metrics" {...motionProps}>
           {[
             ["17", "years old"],
-            ["4y", "software engineering"],
+            ["4y", "development"],
             ["4", "core languages"],
           ].map(([number, label]) => (
             <m.article key={label} whileHover={reduceMotion ? undefined : { y: -3 }}>
@@ -257,7 +257,7 @@ export default function Home() {
           </div>
           <p>
             Saya membangun project dari sisi teknis dan konsep produk. Dengan pengalaman 4 tahun
-            sebagai software engineer, fokus saya adalah membuat platform yang bisa dipakai pengguna
+            sebagai developer, fokus saya adalah membuat platform yang bisa dipakai pengguna
             nyata, mulai dari web platform, aplikasi custom, sampai sistem game.
           </p>
         </m.section>
@@ -276,10 +276,10 @@ export default function Home() {
           <div className="list-block">
             <div className="project-carousel" aria-label="Project carousel">
               <div className="project-track">
-                {[...portfolioRows, ...portfolioRows].map((row, index) => (
+                {portfolioRows.map((row) => (
                   <a
                     className="project-slide"
-                    key={`${row.label}-${index}`}
+                    key={row.label}
                     href={row.href}
                     target={row.href.startsWith("http") ? "_blank" : undefined}
                     rel={row.href.startsWith("http") ? "noreferrer" : undefined}

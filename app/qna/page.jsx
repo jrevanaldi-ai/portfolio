@@ -1,3 +1,4 @@
+import AnimatedAccordion from "../AnimatedAccordion";
 import { RevealSection } from "../MotionBlocks";
 
 const orderChecklist = [
@@ -85,30 +86,6 @@ export const metadata = {
   description:
     "Panduan QnA, checklist, dan syarat ketentuan sebelum order jasa coding website, aplikasi, atau game.",
 };
-
-function Accordion({ children, label }) {
-  return (
-    <div className="accordion" aria-label={label}>
-      {children}
-    </div>
-  );
-}
-
-function AccordionItem({ title, children, defaultOpen = false }) {
-  return (
-    <details className="accordion-item" open={defaultOpen}>
-      <summary className="accordion-button">
-        <span>{title}</span>
-        <span className="accordion-arrow" aria-hidden="true">
-          +
-        </span>
-      </summary>
-      <div className="accordion-panel">
-        <p>{children}</p>
-      </div>
-    </details>
-  );
-}
 
 function Files({ children }) {
   return (
@@ -209,13 +186,7 @@ export default function QnaPage() {
               email brief
             </a>
           </div>
-          <Accordion label="Checklist sebelum order">
-            {orderChecklist.map((item, index) => (
-              <AccordionItem title={item.title} key={item.title} defaultOpen={index === 0}>
-                {item.content}
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <AnimatedAccordion items={orderChecklist} label="Checklist sebelum order" defaultOpenIndex={0} />
         </RevealSection>
 
         <RevealSection className="guide-section" id="project-reference">
@@ -298,25 +269,13 @@ export default function QnaPage() {
         <RevealSection className="guide-section">
           <p className="section-label">[qna]</p>
           <h2>Pertanyaan umum.</h2>
-          <Accordion label="Pertanyaan umum jasa coding">
-            {qnaItems.map((item) => (
-              <AccordionItem title={item.title} key={item.title}>
-                {item.content}
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <AnimatedAccordion items={qnaItems} label="Pertanyaan umum jasa coding" />
         </RevealSection>
 
         <RevealSection className="guide-section guide-last">
           <p className="section-label">[s&k]</p>
           <h2>Syarat dan ketentuan.</h2>
-          <Accordion label="Syarat dan ketentuan order">
-            {termsItems.map((item) => (
-              <AccordionItem title={item.title} key={item.title}>
-                {item.content}
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <AnimatedAccordion items={termsItems} label="Syarat dan ketentuan order" />
         </RevealSection>
       </main>
 
