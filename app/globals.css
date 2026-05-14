@@ -326,7 +326,7 @@ button {
 .site-nav {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 40;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -417,7 +417,7 @@ button {
 
 .app-sidebar {
   position: fixed;
-  top: 16px;
+  top: 64px;
   bottom: 16px;
   left: 16px;
   z-index: 30;
@@ -445,7 +445,7 @@ button {
 
 .sidebar-backdrop {
   position: fixed;
-  inset: 0;
+  inset: 48px 0 0;
   z-index: 29;
   display: none;
   background: rgba(0, 0, 0, 0.42);
