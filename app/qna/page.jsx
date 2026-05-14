@@ -1,3 +1,5 @@
+import MobileDropdown from "../MobileDropdown";
+
 const orderChecklist = [
   {
     title: "Siapkan tujuan project",
@@ -72,61 +74,10 @@ const termsItems = [
   },
 ];
 
-const projectFiles = [
-  {
-    type: "folder",
-    name: "app",
-    status: "main",
-    children: [
-      {
-        type: "folder",
-        name: "(public)",
-        children: [
-          { type: "file", name: "page.jsx", note: "landing / homepage" },
-          { type: "file", name: "layout.jsx", note: "metadata + shell" },
-        ],
-      },
-      {
-        type: "folder",
-        name: "dashboard",
-        children: [
-          { type: "file", name: "page.jsx", note: "main dashboard" },
-          { type: "file", name: "loading.jsx", note: "loading state" },
-        ],
-      },
-      { type: "file", name: "globals.css", note: "design tokens" },
-    ],
-  },
-  {
-    type: "folder",
-    name: "components",
-    status: "reusable",
-    children: [
-      { type: "file", name: "button.jsx", note: "shared button" },
-      { type: "file", name: "modal.jsx", note: "dialog pattern" },
-      { type: "file", name: "navbar.jsx", note: "site navigation" },
-    ],
-  },
-  {
-    type: "folder",
-    name: "lib",
-    status: "logic",
-    children: [
-      { type: "file", name: "api.js", note: "API client" },
-      { type: "file", name: "auth.js", note: "auth helper" },
-      { type: "file", name: "validators.js", note: "input rules" },
-    ],
-  },
-  {
-    type: "folder",
-    name: "assets",
-    children: [
-      { type: "file", name: "logo.png", note: "brand asset" },
-      { type: "file", name: "hero.png", note: "hero visual" },
-    ],
-  },
-  { type: "file", name: "README.md", status: "handoff", note: "cara setup dan deploy" },
-  { type: "file", name: "package.json", note: "scripts project" },
+const qnaNavItems = [
+  { href: "/", label: "Portfolio" },
+  { href: "/services", label: "Services" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export const metadata = {
@@ -160,51 +111,47 @@ function AccordionItem({ title, children, defaultOpen = false }) {
 }
 
 function Files({ children }) {
-  return <div className="files-tree">{children}</div>;
+  return (
+    <div className="files-frame">
+      <div className="files-tree">{children}</div>
+    </div>
+  );
 }
 
-function FolderItem({ name, status, children, defaultOpen = true }) {
+function FolderItem({ value, children, defaultOpen = true }) {
   return (
-    <details className="folder-item" open={defaultOpen}>
-      <summary className="folder-trigger">
-        <span className="file-marker">[dir]</span>
-        <span>{name}</span>
-        {status && <small>{status}</small>}
-      </summary>
-      <div className="folder-content">
-        <SubFiles>{children}</SubFiles>
-      </div>
+    <details className="folder-item" open={defaultOpen} data-value={value}>
+      {children}
     </details>
   );
+}
+
+function FolderTrigger({ children, gitStatus }) {
+  return (
+    <summary className="folder-trigger">
+      <span className="file-icon">dir</span>
+      <span>{children}</span>
+      {gitStatus && <small data-status={gitStatus}>{gitStatus}</small>}
+    </summary>
+  );
+}
+
+function FolderContent({ children }) {
+  return <div className="folder-content">{children}</div>;
 }
 
 function SubFiles({ children }) {
   return <div className="sub-files">{children}</div>;
 }
 
-function FileItem({ name, status, note }) {
+function FileItem({ children, gitStatus, icon = "file" }) {
   return (
     <div className="file-item">
-      <span className="file-marker">[file]</span>
-      <span>{name}</span>
-      {status && <small>{status}</small>}
-      {note && <em>{note}</em>}
+      <span className="file-icon">{icon}</span>
+      <span>{children}</span>
+      {gitStatus && <small data-status={gitStatus}>{gitStatus}</small>}
     </div>
   );
-}
-
-function ProjectFileNode({ node }) {
-  if (node.type === "folder") {
-    return (
-      <FolderItem name={node.name} status={node.status}>
-        {node.children?.map((child) => (
-          <ProjectFileNode node={child} key={`${node.name}-${child.name}`} />
-        ))}
-      </FolderItem>
-    );
-  }
-
-  return <FileItem name={node.name} status={node.status} note={node.note} />;
 }
 
 export default function QnaPage() {
@@ -216,13 +163,16 @@ export default function QnaPage() {
           <small>qna</small>
         </a>
         <nav className="nav-links services-links">
-          <a href="/">Portfolio</a>
-          <a href="/services">Services</a>
-          <a href="/#contact">Contact</a>
+          {qnaNavItems.map((item) => (
+            <a href={item.href} key={item.href}>
+              {item.label}
+            </a>
+          ))}
         </nav>
         <a className="button primary nav-cta" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
           Order
         </a>
+        <MobileDropdown items={qnaNavItems} label="QnA menu" />
       </header>
 
       <main>
@@ -294,9 +244,54 @@ export default function QnaPage() {
               </div>
             </div>
             <Files>
-              {projectFiles.map((node) => (
-                <ProjectFileNode node={node} key={node.name} />
-              ))}
+              <FolderItem value="app">
+                <FolderTrigger gitStatus="modified">app</FolderTrigger>
+                <FolderContent>
+                  <SubFiles>
+                    <FolderItem value="(home)">
+                      <FolderTrigger gitStatus="untracked">(home)</FolderTrigger>
+                      <FolderContent>
+                        <SubFiles>
+                          <FileItem gitStatus="untracked">page.jsx</FileItem>
+                          <FileItem gitStatus="untracked">layout.jsx</FileItem>
+                        </SubFiles>
+                      </FolderContent>
+                    </FolderItem>
+
+                    <FileItem>layout.jsx</FileItem>
+                    <FileItem gitStatus="modified">page.jsx</FileItem>
+                    <FileItem>globals.css</FileItem>
+                  </SubFiles>
+                </FolderContent>
+              </FolderItem>
+
+              <FolderItem value="components">
+                <FolderTrigger>components</FolderTrigger>
+                <FolderContent>
+                  <SubFiles>
+                    <FileItem>button.jsx</FileItem>
+                    <FileItem>tabs.jsx</FileItem>
+                    <FileItem>dialog.jsx</FileItem>
+                    <FolderItem value="empty" defaultOpen={false}>
+                      <FolderTrigger>empty</FolderTrigger>
+                    </FolderItem>
+                  </SubFiles>
+                </FolderContent>
+              </FolderItem>
+
+              <FolderItem value="lib">
+                <FolderTrigger>lib</FolderTrigger>
+                <FolderContent>
+                  <SubFiles>
+                    <FileItem>api.js</FileItem>
+                    <FileItem>auth.js</FileItem>
+                    <FileItem>validators.js</FileItem>
+                  </SubFiles>
+                </FolderContent>
+              </FolderItem>
+
+              <FileItem>README.md</FileItem>
+              <FileItem icon="json">package.json</FileItem>
             </Files>
           </div>
         </section>

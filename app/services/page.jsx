@@ -1,3 +1,5 @@
+import MobileDropdown from "../MobileDropdown";
+
 const servicePlans = [
   {
     name: "Website",
@@ -40,6 +42,13 @@ const serviceRows = [
   ["[x]", "Best for", "Website, aplikasi custom, dashboard, game prototype, dan custom project"],
 ];
 
+const serviceNavItems = [
+  { href: "/", label: "Portfolio" },
+  { href: "/qna", label: "QnA" },
+  { href: "/#work", label: "Work" },
+  { href: "/#contact", label: "Contact" },
+];
+
 export const metadata = {
   title: "Jasa Coding | Nathan",
   description:
@@ -55,14 +64,16 @@ export default function ServicesPage() {
           <small>services</small>
         </a>
         <nav className="nav-links services-links">
-          <a href="/">Portfolio</a>
-          <a href="/qna">QnA</a>
-          <a href="/#work">Work</a>
-          <a href="/#contact">Contact</a>
+          {serviceNavItems.map((item) => (
+            <a href={item.href} key={item.href}>
+              {item.label}
+            </a>
+          ))}
         </nav>
         <a className="button primary nav-cta" href="mailto:jrevanaldi@gmail.com">
           Start project
         </a>
+        <MobileDropdown items={serviceNavItems} label="Services menu" />
       </header>
 
       <main>

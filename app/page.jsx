@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import MobileDropdown from "./MobileDropdown";
 import {
   SiDocker,
   SiExpress,
@@ -23,11 +24,11 @@ import {
 import { TbApi, TbBrandVscode } from "react-icons/tb";
 
 const navItems = [
-  ["#work", "Work"],
-  ["#expertise", "Expertise"],
-  ["/services", "Services"],
-  ["/qna", "QnA"],
-  ["#contact", "Contact"],
+  { href: "#work", label: "Work" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "/services", label: "Services" },
+  { href: "/qna", label: "QnA" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const portfolioRows = [
@@ -148,7 +149,6 @@ function TelegramIcon() {
 }
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [year, setYear] = useState("2026");
 
@@ -176,10 +176,10 @@ export default function Home() {
           <small>portfolio</small>
         </a>
 
-        <nav className={open ? "nav-links is-open" : "nav-links"}>
-          {navItems.map(([href, label]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>
-              {label}
+        <nav className="nav-links">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
             </a>
           ))}
         </nav>
@@ -187,15 +187,7 @@ export default function Home() {
         <a className="button primary nav-cta" href="/services">
           Services
         </a>
-        <button
-          className="menu-button"
-          type="button"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? "[-]" : "[+]"}
-        </button>
+        <MobileDropdown items={navItems} label="Navigation" />
       </header>
 
       <main id="home">

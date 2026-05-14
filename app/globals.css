@@ -420,6 +420,82 @@ button {
   cursor: pointer;
 }
 
+.dropdown-menu {
+  position: relative;
+  display: none;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 20;
+  width: min(280px, calc(100vw - 24px));
+  padding: 8px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 18px;
+  background: rgba(20, 20, 20, 0.96);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 24px 70px rgba(0, 0, 0, 0.44);
+  animation: dropdown-in 160ms ease;
+}
+
+.dropdown-label {
+  display: block;
+  padding: 8px 10px;
+  color: var(--mute);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dropdown-separator {
+  display: block;
+  height: 1px;
+  margin: 4px 0;
+  background: var(--hairline);
+}
+
+.dropdown-group {
+  display: grid;
+  gap: 2px;
+}
+
+.dropdown-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 10px;
+  color: var(--body);
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.dropdown-item:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dropdown-item small {
+  color: var(--ash);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .hero-shell,
 .content-section,
 .metric-grid,
@@ -1122,14 +1198,20 @@ h3 {
   color: var(--body);
 }
 
-.files-tree {
-  display: grid;
-  gap: 2px;
-  padding: 12px;
+.files-frame {
+  max-height: 350px;
+  overflow: auto;
   border: 1px solid var(--hairline);
   border-radius: 20px;
   background: rgba(20, 20, 20, 0.9);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.files-tree {
+  display: grid;
+  gap: 2px;
+  min-width: 460px;
+  padding: 12px;
   font-family: "Berkeley Mono", "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular,
     Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 14px;
@@ -1142,7 +1224,7 @@ h3 {
 .folder-trigger,
 .file-item {
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) auto auto;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
   gap: 10px;
   align-items: center;
   min-height: 34px;
@@ -1171,25 +1253,35 @@ h3 {
   overflow-wrap: anywhere;
 }
 
-.file-marker {
+.file-icon {
   color: var(--framer-blue);
+  font-size: 12px;
 }
 
 .folder-trigger small,
 .file-item small {
   padding: 2px 7px;
-  color: #000000;
   border-radius: 9999px;
-  background: var(--ink);
   font-size: 11px;
   line-height: 1.4;
 }
 
-.file-item em {
-  color: var(--ash);
-  font-size: 12px;
-  font-style: normal;
-  overflow-wrap: anywhere;
+.folder-trigger small[data-status="modified"],
+.file-item small[data-status="modified"] {
+  color: #000000;
+  background: var(--warning);
+}
+
+.folder-trigger small[data-status="untracked"],
+.file-item small[data-status="untracked"] {
+  color: #000000;
+  background: var(--success);
+}
+
+.folder-trigger small[data-status="deleted"],
+.file-item small[data-status="deleted"] {
+  color: #000000;
+  background: var(--danger);
 }
 
 .folder-content {
@@ -1258,29 +1350,17 @@ h3 {
   }
 
   .nav-links {
-    position: absolute;
-    top: 56px;
-    left: 16px;
-    right: 16px;
     display: none;
-    padding: 8px;
-    border: 1px solid var(--hairline);
-    background: var(--surface-soft);
-    border-radius: 20px;
-  }
-
-  .nav-links.is-open {
-    display: grid;
-  }
-
-  .nav-links a {
-    padding: 10px 4px;
   }
 
   .menu-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .dropdown-menu {
+    display: block;
   }
 
   .hero-shell,
@@ -1312,18 +1392,8 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .services-nav {
-    grid-template-columns: auto 1fr auto;
-  }
-
   .services-links {
-    position: static;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    border-radius: 0;
+    display: none;
   }
 
   .pricing-grid {
@@ -1405,12 +1475,11 @@ h3 {
 
   .folder-trigger,
   .file-item {
-    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-columns: 42px minmax(0, 1fr);
   }
 
   .folder-trigger small,
-  .file-item small,
-  .file-item em {
+  .file-item small {
     grid-column: 2;
     width: max-content;
     max-width: 100%;
