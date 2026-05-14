@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import MobileDropdown from "./MobileDropdown";
+import { m, useReducedMotion } from "framer-motion";
 import {
   SiDocker,
   SiExpress,
@@ -107,6 +107,20 @@ const processRows = [
   ["04", "Improve", "Merapikan sistem, memperbaiki bug, menambah konten, dan memperkuat arah project."],
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.07,
+    },
+  },
+};
+
 function AsciiLogo() {
   return (
     <pre className="ascii-logo" aria-label="Nathan">
@@ -151,6 +165,16 @@ function TelegramIcon() {
 export default function Home() {
   const [copied, setCopied] = useState(false);
   const [year, setYear] = useState("2026");
+  const reduceMotion = useReducedMotion();
+  const motionProps = reduceMotion
+    ? {}
+    : {
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, margin: "-80px" },
+        variants: fadeUp,
+        transition: { duration: 0.42, ease: "easeOut" },
+      };
 
   useEffect(() => {
     setYear(String(new Date().getFullYear()));
@@ -187,30 +211,31 @@ export default function Home() {
         <a className="button primary nav-cta" href="/services">
           Services
         </a>
-        <MobileDropdown items={navItems} label="Navigation" />
       </header>
 
       <main id="home">
-        <section className="hero-shell">
+        <m.section className="hero-shell" initial="hidden" animate="show" variants={stagger}>
           <div className="hero-copy">
-            <span className="badge">[17 year old software engineer / 4 years experience]</span>
-            <h1>Saya membangun digital worlds, media platforms, dan game systems.</h1>
-            <p>
+            <m.span className="badge" variants={fadeUp}>
+              [17 year old software engineer / 4 years experience]
+            </m.span>
+            <m.h1 variants={fadeUp}>Saya membangun digital worlds, media platforms, dan game systems.</m.h1>
+            <m.p variants={fadeUp}>
               Saya adalah software engineer berusia 17 tahun dengan 4 tahun pengalaman, menguasai
               JavaScript, TypeScript, Golang, dan Rust untuk membangun web platform, hiburan
               digital, dan game MMORPG.
-            </p>
-            <div className="hero-actions">
+            </m.p>
+            <m.div className="hero-actions" variants={fadeUp}>
               <a className="button primary" href="#work">
                 View work
               </a>
               <a className="button secondary" href="/services">
                 View services
               </a>
-            </div>
+            </m.div>
           </div>
 
-          <div className="terminal-card" aria-label="Portfolio terminal preview">
+          <m.div className="terminal-card" aria-label="Portfolio terminal preview" variants={fadeUp}>
             <AsciiLogo />
             <div className="prompt-row">
               <span>|</span>
@@ -228,23 +253,23 @@ export default function Home() {
               <span>tab switch section</span>
               <span>ctrl-k contact</span>
             </div>
-          </div>
-        </section>
+          </m.div>
+        </m.section>
 
-        <section className="metric-grid" aria-label="Experience metrics">
+        <m.section className="metric-grid" aria-label="Experience metrics" {...motionProps}>
           {[
             ["17", "years old"],
             ["4y", "software engineering"],
             ["4", "core languages"],
           ].map(([number, label]) => (
-            <article key={label}>
+            <m.article key={label} whileHover={reduceMotion ? undefined : { y: -3 }}>
               <strong>{number}</strong>
               <span>{label}</span>
-            </article>
+            </m.article>
           ))}
-        </section>
+        </m.section>
 
-        <section className="content-section split">
+        <m.section className="content-section split" {...motionProps}>
           <div>
             <p className="section-label">[profile]</p>
             <h2>A young developer turning entertainment ideas into real products.</h2>
@@ -254,9 +279,9 @@ export default function Home() {
             sebagai software engineer, fokus saya adalah membuat platform yang bisa dipakai pengguna
             nyata, mulai dari web platform, aplikasi custom, sampai sistem game.
           </p>
-        </section>
+        </m.section>
 
-        <section className="content-section" id="work">
+        <m.section className="content-section" id="work" {...motionProps}>
           <div className="section-head">
             <div>
               <p className="section-label">[selected work]</p>
@@ -287,14 +312,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </m.section>
 
-        <section className="content-section" id="expertise">
+        <m.section className="content-section" id="expertise" {...motionProps}>
           <p className="section-label">[stack]</p>
           <h2>Stack yang saya gunakan.</h2>
           <div className="stack-grid">
             {stackGroups.map((group) => (
-              <article className="stack-card" key={group.title}>
+              <m.article className="stack-card" key={group.title} whileHover={reduceMotion ? undefined : { y: -4 }}>
                 <span>{group.marker}</span>
                 <h3>{group.title}</h3>
                 <div>
@@ -305,12 +330,12 @@ export default function Home() {
                     </small>
                   ))}
                 </div>
-              </article>
+              </m.article>
             ))}
           </div>
-        </section>
+        </m.section>
 
-        <section className="content-section" id="process">
+        <m.section className="content-section" id="process" {...motionProps}>
           <p className="section-label">[process]</p>
           <h2>How I build</h2>
           <div className="process-grid">
@@ -322,9 +347,9 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </section>
+        </m.section>
 
-        <section className="content-section contact" id="contact">
+        <m.section className="content-section contact" id="contact" {...motionProps}>
           <div>
             <p className="section-label">[contact]</p>
             <h2>Follow the projects and the build journey.</h2>
@@ -362,7 +387,7 @@ export default function Home() {
               {copied ? "Email copied" : "Copy email"}
             </button>
           </div>
-        </section>
+        </m.section>
       </main>
 
       <footer className="footer">

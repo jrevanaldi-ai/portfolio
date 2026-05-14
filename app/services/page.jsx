@@ -1,4 +1,4 @@
-import MobileDropdown from "../MobileDropdown";
+import { MotionCard, RevealSection } from "../MotionBlocks";
 
 const servicePlans = [
   {
@@ -73,11 +73,10 @@ export default function ServicesPage() {
         <a className="button primary nav-cta" href="mailto:jrevanaldi@gmail.com">
           Start project
         </a>
-        <MobileDropdown items={serviceNavItems} label="Services menu" />
       </header>
 
       <main>
-        <section className="service-hero">
+        <RevealSection className="service-hero">
           <div>
             <span className="badge">[coding services / website / app / game]</span>
             <h1>Jasa coding untuk produk yang siap dipakai.</h1>
@@ -102,9 +101,9 @@ export default function ServicesPage() {
             <strong>Website. App. Game.</strong>
             <p>Build from concept, UI, code, integration, until deploy-ready handoff.</p>
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="pricing-section" aria-label="Harga jasa coding">
+        <RevealSection className="pricing-section" ariaLabel="Harga jasa coding">
           <div className="section-head">
             <div>
               <p className="section-label">[pricing plans]</p>
@@ -117,7 +116,7 @@ export default function ServicesPage() {
 
           <div className="pricing-grid">
             {servicePlans.map((plan) => (
-              <article className={plan.featured ? "pricing-card featured" : "pricing-card"} key={plan.name}>
+              <MotionCard className={plan.featured ? "pricing-card featured" : "pricing-card"} key={plan.name}>
                 {plan.featured && <span className="plan-badge">Recommended</span>}
                 <div>
                   <p>{plan.tag}</p>
@@ -133,12 +132,12 @@ export default function ServicesPage() {
                 <a className={plan.featured ? "button primary" : "button secondary"} href="mailto:jrevanaldi@gmail.com">
                   Discuss {plan.name}
                 </a>
-              </article>
+              </MotionCard>
             ))}
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="content-section service-notes">
+        <RevealSection className="content-section service-notes">
           <p className="section-label">[how it works]</p>
           <div className="list-block compact">
             {serviceRows.map(([marker, label, value]) => (
@@ -149,7 +148,7 @@ export default function ServicesPage() {
               </article>
             ))}
           </div>
-        </section>
+        </RevealSection>
       </main>
 
       <footer className="footer">

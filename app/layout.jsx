@@ -1,5 +1,6 @@
 import "./globals.css";
 import BubbleBackground from "./BubbleBackground";
+import MotionProvider from "./MotionProvider";
 import WelcomeIntro from "./WelcomeIntro";
 
 export const metadata = {
@@ -14,7 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <BubbleBackground />
         <WelcomeIntro />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

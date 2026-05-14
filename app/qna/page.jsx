@@ -1,4 +1,4 @@
-import MobileDropdown from "../MobileDropdown";
+import { RevealSection } from "../MotionBlocks";
 
 const orderChecklist = [
   {
@@ -172,11 +172,10 @@ export default function QnaPage() {
         <a className="button primary nav-cta" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
           Order
         </a>
-        <MobileDropdown items={qnaNavItems} label="QnA menu" />
       </header>
 
       <main>
-        <section className="guide-hero">
+        <RevealSection className="guide-hero">
           <div>
             <span className="badge">[read before order]</span>
             <h1>QnA dan S&K sebelum mulai project.</h1>
@@ -198,9 +197,9 @@ export default function QnaPage() {
             <strong>Brief. Scope. Timeline. Deal.</strong>
             <p>Semakin jelas brief awal, semakin cepat estimasi dan pengerjaan bisa dimulai.</p>
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="guide-section">
+        <RevealSection className="guide-section">
           <div className="section-head">
             <div>
               <p className="section-label">[order checklist]</p>
@@ -217,9 +216,9 @@ export default function QnaPage() {
               </AccordionItem>
             ))}
           </Accordion>
-        </section>
+        </RevealSection>
 
-        <section className="guide-section" id="project-reference">
+        <RevealSection className="guide-section" id="project-reference">
           <div className="section-head">
             <div>
               <p className="section-label">[project reference]</p>
@@ -294,9 +293,9 @@ export default function QnaPage() {
               <FileItem icon="json">package.json</FileItem>
             </Files>
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="guide-section">
+        <RevealSection className="guide-section">
           <p className="section-label">[qna]</p>
           <h2>Pertanyaan umum.</h2>
           <Accordion label="Pertanyaan umum jasa coding">
@@ -306,9 +305,9 @@ export default function QnaPage() {
               </AccordionItem>
             ))}
           </Accordion>
-        </section>
+        </RevealSection>
 
-        <section className="guide-section guide-last">
+        <RevealSection className="guide-section guide-last">
           <p className="section-label">[s&k]</p>
           <h2>Syarat dan ketentuan.</h2>
           <Accordion label="Syarat dan ketentuan order">
@@ -318,7 +317,7 @@ export default function QnaPage() {
               </AccordionItem>
             ))}
           </Accordion>
-        </section>
+        </RevealSection>
       </main>
 
       <footer className="footer">
