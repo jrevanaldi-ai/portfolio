@@ -69,7 +69,7 @@ export const projects = [
   },
   {
     label: "Astralune Prototype",
-    href: "#work",
+    href: "https://github.com/jrevanaldi-ai/astralune-rpg",
     image: "https://cloud.yardansh.com/bumNMq.jpg",
     description: "Eksplorasi konsep dan alur game MMORPG fantasy — prototype & game flow.",
     meta: "Game prototype · concept",
