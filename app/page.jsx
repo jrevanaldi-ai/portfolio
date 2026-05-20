@@ -293,8 +293,9 @@ export default function Home() {
             <span className="section-label">contact</span>
             <h2>Let&apos;s build something.</h2>
             <p className="hero-text">
-              Buka jasa pembuatan website, aplikasi, dan game. Cek section portfolio untuk lihat
-              project yang sudah dibuat.
+              Buka jasa pembuatan website, aplikasi, game, dan bot WhatsApp / Discord / Telegram
+              (termasuk auto responder website). Cek section portfolio untuk lihat project yang
+              sudah dibuat.
             </p>
             <div className="contact-block">
               <div className="contact-icons" aria-label="Contact links">
@@ -312,7 +313,7 @@ export default function Home() {
                 <button className="button primary" type="button" onClick={copyEmail}>
                   {copied ? "Email copied ✓" : "Copy email"}
                 </button>
-                <span className="copy-pill" style={{ marginLeft: 10 }}>website · app · game</span>
+                <span className="copy-pill" style={{ marginLeft: 10 }}>website · app · game · bot</span>
               </div>
             </div>
           </m.section>

@@ -31,6 +31,14 @@ const servicePlans = [
     features: ["Game loop", "Gameplay systems", "UI / HUD", "Prototype build"],
   },
   {
+    name: "Bot & Automation",
+    price: "Mulai Rp500K",
+    tag: "WhatsApp · Discord · Telegram · Web auto responder",
+    description:
+      "Bot custom untuk WhatsApp, Discord, dan Telegram, atau auto responder untuk website — cocok untuk customer service, notifikasi, moderasi, dan automasi flow harian.",
+    features: ["WhatsApp / Discord / Telegram bot", "Web auto responder", "Custom commands & flow", "Webhook & API integration"],
+  },
+  {
     name: "Custom Project",
     price: "Sesuai request",
     tag: "Custom scope · request khusus · ide unik",
@@ -43,20 +51,20 @@ const servicePlans = [
 const serviceRows = [
   ["Tech stack", "JavaScript, TypeScript, Golang, Rust"],
   ["Delivery", "Scope jelas, progress bertahap, dan hasil bisa diuji"],
-  ["Best for", "Website, aplikasi custom, dashboard, game prototype, custom project"],
+  ["Best for", "Website, aplikasi custom, dashboard, game prototype, bot WhatsApp/Discord/Telegram, auto responder"],
 ];
 
 export const metadata = {
   title: "Astralune Service",
   description:
-    "Astralune Service menyediakan jasa coding untuk pembuatan website, aplikasi, dashboard, custom system, dan prototype game.",
+    "Astralune Service menyediakan jasa coding untuk website, aplikasi, dashboard, custom system, prototype game, dan bot WhatsApp/Discord/Telegram serta auto responder website.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
     title: "Astralune Service",
     description:
-      "Jasa coding website, aplikasi, dashboard, custom system, dan prototype game.",
+      "Jasa coding website, aplikasi, dashboard, prototype game, dan bot WhatsApp/Discord/Telegram.",
     url: "/services",
     siteName: "Astralune",
     images: [{ url: openGraphImage, alt: "Astralune service preview" }],
@@ -67,7 +75,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Astralune Service",
     description:
-      "Jasa coding website, aplikasi, dashboard, custom system, dan prototype game.",
+      "Jasa coding website, aplikasi, dashboard, prototype game, dan bot WhatsApp/Discord/Telegram.",
     images: [openGraphImage],
   },
 };
@@ -104,13 +112,14 @@ export default function ServicesPage() {
             <h1>Services</h1>
           </div>
 
-          <div className="tagline-card">jasa coding · website · app · game</div>
+          <div className="tagline-card">website · app · game · bot · automation</div>
 
           <p className="hero-text">
             Buka jasa pembuatan <span className="hl">website</span>,{" "}
-            <span className="hl pink">aplikasi</span>, dan{" "}
-            <span className="hl mint">game</span>. Cocok untuk personal project, bisnis,
-            dashboard internal, media platform, sampai prototype game.
+            <span className="hl pink">aplikasi</span>,{" "}
+            <span className="hl mint">game</span>, dan{" "}
+            <span className="hl blue">bot WhatsApp / Discord / Telegram</span> termasuk
+            auto responder untuk website.
           </p>
 
           <div className="hero-actions">
@@ -121,7 +130,7 @@ export default function ServicesPage() {
 
           <div className="spotlight">
             <span>[ currently accepting ]</span>
-            <strong>Website. App. Game.</strong>
+            <strong>Website. App. Game. Bot.</strong>
             <p>Build from concept, UI, code, integration, until deploy-ready handoff.</p>
           </div>
 
