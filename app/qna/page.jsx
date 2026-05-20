@@ -3,7 +3,6 @@ import AnimatedAccordion from "../AnimatedAccordion";
 import { RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
 import { FiFile, FiFileText, FiFolder } from "react-icons/fi";
-import { FaJava } from "react-icons/fa";
 
 const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
 
@@ -172,13 +171,13 @@ export default function QnaPage() {
           <span className="notebook-tape left" aria-hidden="true" />
           <span className="notebook-tape right" aria-hidden="true" />
 
-          <div
-            className="sticker-icon"
-            style={{ top: 20, right: 36, width: 90, height: 90, transform: "rotate(8deg)", color: "#ea2d2e" }}
-            aria-label="Java sticker"
+          <span
+            className="mascot-sticker"
+            style={{ top: 8, right: 22, width: 90, transform: "rotate(8deg)" }}
+            aria-label="Java Duke mascot sticker"
           >
-            <FaJava />
-          </div>
+            <img src="/stickers/duke.png" alt="" />
+          </span>
 
           <div className="notebook-meta">
             <span>astralune / qna</span>
