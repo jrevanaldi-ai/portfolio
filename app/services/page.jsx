@@ -1,6 +1,7 @@
 import AppSidebar from "../AppSidebar";
 import { MotionCard, RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
+import { SiJavascript, SiTypescript } from "react-icons/si";
 
 const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
 
@@ -98,10 +99,19 @@ export default function ServicesPage() {
           <span className="notebook-tape right" aria-hidden="true" />
 
           <div
-            className="sticker-slot"
-            style={{ top: 32, right: 48, width: 84, height: 84, transform: "rotate(-6deg)" }}
-            aria-hidden="true"
-          />
+            className="sticker-icon"
+            style={{ top: 18, right: 36, width: 88, height: 88, transform: "rotate(-8deg)", color: "#3178c6" }}
+            aria-label="TypeScript sticker"
+          >
+            <SiTypescript />
+          </div>
+          <div
+            className="sticker-icon"
+            style={{ top: 280, right: -10, width: 70, height: 70, transform: "rotate(12deg)", color: "#f7df1e" }}
+            aria-label="JavaScript sticker"
+          >
+            <SiJavascript />
+          </div>
 
           <div className="notebook-meta">
             <span>astralune / services</span>

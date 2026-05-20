@@ -182,10 +182,12 @@ export default function Home() {
           <span className="notebook-tape right" aria-hidden="true" />
 
           <div
-            className="sticker-slot"
-            style={{ top: 26, right: 60, width: 92, height: 92, transform: "rotate(8deg)" }}
-            aria-hidden="true"
-          />
+            className="sticker-icon"
+            style={{ top: 18, right: 32, width: 94, height: 94, transform: "rotate(10deg)", color: "#00add8" }}
+            aria-label="Go gopher sticker"
+          >
+            <SiGo />
+          </div>
 
           <div className="notebook-meta">
             <a href="https://github.com/jrevanaldi-ai" target="_blank" rel="noreferrer">
@@ -215,10 +217,12 @@ export default function Home() {
 
           <m.div className="sticky-note" {...reveal}>
             <div
-              className="sticker-slot"
-              style={{ top: -32, right: -12, width: 76, height: 76, transform: "rotate(-12deg)" }}
-              aria-hidden="true"
-            />
+              className="sticker-icon"
+              style={{ top: -34, right: -16, width: 76, height: 76, transform: "rotate(-14deg)", color: "#1c1c1c" }}
+              aria-label="Rust sticker"
+            >
+              <SiRust />
+            </div>
             <h3>Profile Note</h3>
             <p>
               Nathan, lebih dikenal lewat identitas <strong>Astralune</strong>. Developer muda yang
