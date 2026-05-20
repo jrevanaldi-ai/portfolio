@@ -29,7 +29,7 @@ const portfolioRows = [
   {
     label: "Kudonime",
     href: "https://kudonime.tech",
-    image: "https://cloud.yardansh.com/6mme9G.jpg",
+    image: "https://cloud.yardansh.com/0gJYes.jpg",
     description: "Situs hiburan untuk nonton anime, baca manga, dan nonton film.",
     meta: "Anime · Manga · Film",
     accent: "linear-gradient(135deg, #ff7eb6 0%, #ffb347 100%)",
