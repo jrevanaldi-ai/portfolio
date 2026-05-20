@@ -30,9 +30,9 @@ export const site = {
   experienceYears: 4,
   ogImage: "https://cloud.yardansh.com/9mHeeg.jpg",
   description:
-    "Astralune adalah portfolio developer untuk web platform, media digital, dan eksplorasi prototype game. Buka jasa pembuatan website, aplikasi, prototype / alur game, dan bot WhatsApp / Discord / Telegram serta auto responder website.",
+    "Portfolio dan layanan engineering Astralune. Pengembangan website, aplikasi web, dashboard, sistem custom, prototype game, serta integrasi bot pada platform WhatsApp, Discord, dan Telegram.",
   shortDescription:
-    "Portfolio developer untuk web platform, media digital, prototype game, website, aplikasi, dan bot WhatsApp / Discord / Telegram.",
+    "Portfolio dan layanan engineering untuk pengembangan website, aplikasi, prototype game, dan integrasi bot.",
   keywords: [
     "Astralune",
     "Astralune Service",

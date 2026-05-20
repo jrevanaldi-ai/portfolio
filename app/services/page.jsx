@@ -3,17 +3,19 @@ import { MotionCard, RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
 import { site, contact, servicePlans, serviceRows, stickers } from "../site.config";
 
+const servicesShortDescription =
+  "Layanan engineering untuk pengembangan website, aplikasi, dashboard, prototype game, dan integrasi bot.";
+
 export const metadata = {
   title: `${site.name} Service`,
   description:
-    `${site.name} Service menyediakan jasa coding untuk website, aplikasi, dashboard, custom system, prototype / alur game, dan bot WhatsApp/Discord/Telegram serta auto responder website.`,
+    `${site.name} Service menyediakan layanan engineering untuk pengembangan website, aplikasi web, dashboard, sistem custom, prototype game, serta integrasi bot pada platform WhatsApp, Discord, dan Telegram.`,
   alternates: {
     canonical: "/services",
   },
   openGraph: {
     title: `${site.name} Service`,
-    description:
-      "Jasa coding website, aplikasi, dashboard, prototype game, dan bot WhatsApp/Discord/Telegram.",
+    description: servicesShortDescription,
     url: "/services",
     siteName: site.name,
     images: [{ url: site.ogImage, alt: `${site.name} service preview` }],
@@ -23,8 +25,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${site.name} Service`,
-    description:
-      "Jasa coding website, aplikasi, dashboard, prototype game, dan bot WhatsApp/Discord/Telegram.",
+    description: servicesShortDescription,
     images: [site.ogImage],
   },
 };

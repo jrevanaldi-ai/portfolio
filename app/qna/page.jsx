@@ -12,17 +12,19 @@ import {
   stickers,
 } from "../site.config";
 
+const qnaShortDescription =
+  `Dokumentasi engagement ${site.name} Service: checklist, referensi struktur project, pertanyaan umum, dan syarat ketentuan.`;
+
 export const metadata = {
-  title: "QnA & S&K Order",
+  title: "QnA & Syarat Ketentuan",
   description:
-    `Panduan QnA, checklist, contoh struktur project, dan syarat ketentuan sebelum order ${site.name} Service.`,
+    `Dokumentasi proses engagement ${site.name} Service: checklist persiapan, referensi struktur project, daftar pertanyaan umum, serta syarat dan ketentuan kerjasama.`,
   alternates: {
     canonical: "/qna",
   },
   openGraph: {
-    title: `QnA & S&K Order | ${site.name} Service`,
-    description:
-      `Panduan sebelum order ${site.name} Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.`,
+    title: `QnA & Syarat Ketentuan | ${site.name} Service`,
+    description: qnaShortDescription,
     url: "/qna",
     siteName: site.name,
     images: [{ url: site.ogImage, alt: `${site.name} QnA preview` }],
@@ -31,9 +33,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `QnA & S&K Order | ${site.name} Service`,
-    description:
-      `Panduan sebelum order ${site.name} Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.`,
+    title: `QnA & Syarat Ketentuan | ${site.name} Service`,
+    description: qnaShortDescription,
     images: [site.ogImage],
   },
 };
