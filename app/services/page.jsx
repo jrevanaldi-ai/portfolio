@@ -99,14 +99,14 @@ export default function ServicesPage() {
 
           <span
             className="mascot-sticker"
-            style={{ top: -38, right: 14, width: 92, transform: "rotate(-8deg)" }}
+            style={{ top: 64, right: 18, width: 78, transform: "rotate(-8deg)" }}
             aria-label="TypeScript mascot sticker"
           >
             <img src="/stickers/ts.png" alt="" />
           </span>
           <span
             className="mascot-sticker"
-            style={{ top: -36, left: -22, width: 78, transform: "rotate(12deg)" }}
+            style={{ top: 480, left: 8, width: 58, transform: "rotate(12deg)" }}
             aria-label="JavaScript mascot sticker"
           >
             <img src="/stickers/js.png" alt="" />

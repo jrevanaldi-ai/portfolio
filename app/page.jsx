@@ -183,7 +183,7 @@ export default function Home() {
 
           <span
             className="mascot-sticker"
-            style={{ top: -42, right: 18, width: 86, transform: "rotate(8deg)" }}
+            style={{ top: 64, right: 18, width: 74, transform: "rotate(8deg)" }}
             aria-label="Go gopher sticker"
           >
             <img src="/stickers/gopher.png" alt="" />
@@ -218,7 +218,7 @@ export default function Home() {
           <m.div className="sticky-note" {...reveal}>
             <span
               className="mascot-sticker"
-              style={{ top: -48, right: -36, width: 82, transform: "rotate(-12deg)" }}
+              style={{ top: 10, right: 14, width: 62, transform: "rotate(-12deg)" }}
               aria-label="Ferris the crab sticker"
             >
               <img src="/stickers/ferris.png" alt="" />
