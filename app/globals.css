@@ -92,8 +92,6 @@ body::after {
   mix-blend-mode: screen;
 }
 
-/* ===================== Notebook wrapper ===================== */
-
 .notebook {
   position: relative;
   z-index: 1;
@@ -188,8 +186,6 @@ body::after {
   border-color: var(--accent);
 }
 
-/* ===================== Typography ===================== */
-
 h1, h2, h3 {
   font-family: var(--font-display);
   color: var(--ink-strong);
@@ -249,7 +245,6 @@ small {
   text-transform: uppercase;
 }
 
-/* Marker highlight on inline text */
 .hl {
   background: var(--hl-amber);
   padding: 2px 8px;
@@ -262,8 +257,6 @@ small {
 .hl.pink { background: var(--hl-pink); }
 .hl.mint { background: var(--hl-mint); }
 .hl.blue { background: var(--hl-blue); }
-
-/* ===================== Hero / page heading ===================== */
 
 .page-heading {
   position: relative;
@@ -310,8 +303,6 @@ small {
   gap: 12px;
   margin: 18px 0 24px;
 }
-
-/* ===================== Buttons (notebook stroke) ===================== */
 
 .button {
   position: relative;
@@ -372,8 +363,6 @@ small {
   border-color: var(--ink-strong);
 }
 
-/* ===================== Sticker slot ===================== */
-
 .sticker {
   position: absolute;
   z-index: 5;
@@ -406,8 +395,6 @@ small {
   height: auto;
   display: block;
 }
-
-/* ===================== Sticky note ===================== */
 
 .sticky-note {
   position: relative;
@@ -473,8 +460,6 @@ small {
   margin-bottom: 0;
 }
 
-/* ===================== Sections inside notebook ===================== */
-
 .section {
   position: relative;
   z-index: 2;
@@ -489,8 +474,6 @@ small {
   gap: 12px;
   margin-bottom: 18px;
 }
-
-/* ===================== Project / Index cards ===================== */
 
 .cards-stack {
   display: grid;
@@ -569,8 +552,6 @@ small {
   color: var(--ink-faint);
   letter-spacing: 0.06em;
 }
-
-/* ===================== Polaroid project cards ===================== */
 
 .polaroid-stack {
   display: grid;
@@ -717,8 +698,6 @@ small {
   }
 }
 
-/* ===================== Stack / list rows ===================== */
-
 .stack-list {
   display: grid;
   gap: 14px;
@@ -783,8 +762,6 @@ small {
   background: rgba(255, 179, 71, 0.06);
 }
 
-/* ===================== Process numbered list ===================== */
-
 .process-list {
   list-style: none;
   padding: 0;
@@ -834,8 +811,6 @@ small {
   font-size: 15px;
   color: var(--ink-mute);
 }
-
-/* ===================== Contact ===================== */
 
 .contact-block {
   display: grid;
@@ -888,8 +863,6 @@ small {
   border: 1px dashed rgba(255, 220, 170, 0.22);
   border-radius: 999px;
 }
-
-/* ===================== Site nav (header) ===================== */
 
 .site-nav {
   position: sticky;
@@ -948,8 +921,6 @@ small {
   width: 20px;
   height: 20px;
 }
-
-/* ===================== Sidebar (bookmark drawer) ===================== */
 
 .sidebar-backdrop {
   position: fixed;
@@ -1104,8 +1075,6 @@ small {
   text-transform: uppercase;
 }
 
-/* ===================== Footer ===================== */
-
 .footer {
   position: relative;
   z-index: 2;
@@ -1149,8 +1118,6 @@ small {
   color: var(--accent);
   text-decoration: none;
 }
-
-/* ===================== Welcome intro ===================== */
 
 .welcome-intro {
   position: fixed;
@@ -1246,8 +1213,6 @@ small {
   50% { opacity: 0; }
 }
 
-/* ===================== Accordion (notebook list) ===================== */
-
 .accordion {
   display: flex;
   flex-direction: column;
@@ -1306,8 +1271,6 @@ small {
   margin: 0;
   line-height: 1.7;
 }
-
-/* ===================== Pricing cards ===================== */
 
 .pricing-grid {
   display: grid;
@@ -1434,8 +1397,6 @@ small {
   font-size: 18px;
 }
 
-/* ===================== Hero summary box (services / qna) ===================== */
-
 .spotlight {
   position: relative;
   background: var(--sticky-amber);
@@ -1473,8 +1434,6 @@ small {
   font-size: 15px;
 }
 
-/* ===================== Reference points (qna) ===================== */
-
 .reference-points {
   display: flex;
   flex-wrap: wrap;
@@ -1487,8 +1446,6 @@ small {
   font-size: 12px;
   color: var(--ink-mute);
 }
-
-/* ===================== File tree (qna) ===================== */
 
 .files-frame {
   background: var(--paper-edge);
@@ -1588,8 +1545,6 @@ small {
   background: rgba(101, 211, 154, 0.1);
 }
 
-/* ===================== Bubble background (paper desk vibe) ===================== */
-
 .bubble-background {
   position: fixed;
   inset: 0;
@@ -1629,8 +1584,6 @@ small {
   display: none;
 }
 
-/* ===================== Reduced motion ===================== */
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -1638,8 +1591,6 @@ small {
     transition-duration: 0.001ms !important;
   }
 }
-
-/* ===================== Responsive ===================== */
 
 @media (max-width: 540px) {
   .notebook {

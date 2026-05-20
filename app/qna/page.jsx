@@ -3,106 +3,38 @@ import AnimatedAccordion from "../AnimatedAccordion";
 import { RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
 import { FiFile, FiFileText, FiFolder } from "react-icons/fi";
-
-const openGraphImage = "https://cloud.yardansh.com/9mHeeg.jpg";
-
-const orderChecklist = [
-  {
-    title: "Siapkan tujuan project",
-    content:
-      "Tulis project ini dibuat untuk apa, siapa target penggunanya, dan hasil akhir yang kamu harapkan. Contoh: landing page bisnis, dashboard admin, aplikasi member, atau prototype game.",
-  },
-  {
-    title: "Siapkan fitur utama",
-    content:
-      "Buat daftar fitur wajib dan fitur tambahan. Fitur wajib diprioritaskan untuk estimasi harga dan waktu, fitur tambahan bisa masuk tahap lanjutan jika scope terlalu besar.",
-  },
-  {
-    title: "Siapkan referensi tampilan",
-    content:
-      "Kirim contoh website, aplikasi, warna, layout, atau style yang kamu suka. Referensi membantu proses desain lebih cepat dan mengurangi revisi yang tidak perlu.",
-  },
-  {
-    title: "Siapkan konten dan akses",
-    content:
-      "Untuk website, siapkan teks, logo, gambar, link sosial, domain, dan hosting jika sudah ada. Untuk aplikasi, siapkan contoh data, flow bisnis, dan kebutuhan role user.",
-  },
-];
-
-const qnaItems = [
-  {
-    title: "Bagaimana cara mulai order?",
-    content:
-      "Baca checklist dulu, lalu kirim ringkasan project lewat Telegram atau email. Setelah scope jelas, saya berikan estimasi harga, waktu pengerjaan, dan urutan milestone.",
-  },
-  {
-    title: "Apakah harga bisa berubah?",
-    content:
-      "Bisa, kalau scope bertambah dari kesepakatan awal. Harga awal dihitung dari fitur, kompleksitas UI, integrasi, database, auth, dan kebutuhan deploy.",
-  },
-  {
-    title: "Apakah bisa request revisi?",
-    content:
-      "Bisa. Revisi berlaku untuk penyesuaian sesuai scope awal. Perubahan besar seperti tambah fitur baru, ubah flow utama, atau redesign penuh dihitung sebagai scope tambahan.",
-  },
-  {
-    title: "Berapa lama pengerjaan?",
-    content:
-      "Tergantung scope. Landing page sederhana bisa lebih cepat, sedangkan aplikasi, dashboard, dan game prototype butuh estimasi khusus setelah kebutuhan dibahas.",
-  },
-  {
-    title: "Apakah bisa bantu deploy?",
-    content:
-      "Bisa. Saya bisa bantu deploy-ready handoff atau deploy langsung jika akses dan platform sudah jelas. Biaya domain, hosting, database, dan layanan pihak ketiga ditanggung client.",
-  },
-];
-
-const termsItems = [
-  {
-    title: "Pembayaran dan mulai kerja",
-    content:
-      "Project mulai dikerjakan setelah scope disetujui dan pembayaran awal dilakukan sesuai kesepakatan. Sisa pembayaran dilakukan sebelum final handoff atau deploy final.",
-  },
-  {
-    title: "Scope harus jelas",
-    content:
-      "Semua fitur, halaman, integrasi, dan deliverable harus disepakati di awal. Request di luar scope akan dibuatkan estimasi tambahan sebelum dikerjakan.",
-  },
-  {
-    title: "Materi dari client",
-    content:
-      "Client bertanggung jawab menyediakan konten, asset, akun, API key, domain, hosting, dan data yang diperlukan. Keterlambatan materi bisa mempengaruhi timeline.",
-  },
-  {
-    title: "Final handoff",
-    content:
-      "Setelah project selesai dan pembayaran lunas, source code atau hasil deploy diserahkan sesuai kesepakatan. Maintenance setelah handoff dihitung terpisah jika tidak termasuk paket.",
-  },
-];
+import {
+  site,
+  contact,
+  orderChecklist,
+  qnaItems,
+  termsItems,
+  stickers,
+} from "../site.config";
 
 export const metadata = {
   title: "QnA & S&K Order",
   description:
-    "Panduan QnA, checklist, contoh struktur project, dan syarat ketentuan sebelum order Astralune Service.",
+    `Panduan QnA, checklist, contoh struktur project, dan syarat ketentuan sebelum order ${site.name} Service.`,
   alternates: {
     canonical: "/qna",
   },
   openGraph: {
-    title: "QnA & S&K Order | Astralune Service",
+    title: `QnA & S&K Order | ${site.name} Service`,
     description:
-      "Panduan sebelum order Astralune Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.",
+      `Panduan sebelum order ${site.name} Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.`,
     url: "/qna",
-    siteName: "Astralune",
-    images: [{ url: openGraphImage, alt: "Astralune QnA preview" }],
+    siteName: site.name,
+    images: [{ url: site.ogImage, alt: `${site.name} QnA preview` }],
     type: "website",
-    locale: "id_ID",
+    locale: site.locale,
   },
   twitter: {
     card: "summary_large_image",
-    title: "QnA & S&K Order | Astralune Service",
+    title: `QnA & S&K Order | ${site.name} Service`,
     description:
-      "Panduan sebelum order Astralune Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.",
-    images: [openGraphImage],
+      `Panduan sebelum order ${site.name} Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.`,
+    images: [site.ogImage],
   },
 };
 
@@ -155,11 +87,13 @@ function FileItem({ children, gitStatus, icon: Icon = FiFile }) {
 }
 
 export default function QnaPage() {
+  const duke = stickers.qna.duke;
+
   return (
     <>
       <header className="site-nav" id="top">
         <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
-          <span>Nathan</span>
+          <span>{site.brand}</span>
           <small>qna</small>
         </a>
         <SidebarTrigger />
@@ -171,16 +105,12 @@ export default function QnaPage() {
           <span className="notebook-tape left" aria-hidden="true" />
           <span className="notebook-tape right" aria-hidden="true" />
 
-          <span
-            className="mascot-sticker"
-            style={{ top: 64, right: 18, width: 68, transform: "rotate(8deg)" }}
-            aria-label="Java Duke mascot sticker"
-          >
-            <img src="/stickers/duke.png" alt="" />
+          <span className="mascot-sticker" style={duke.style} aria-label={duke.label}>
+            <img src={duke.src} alt="" />
           </span>
 
           <div className="notebook-meta">
-            <span>astralune / qna</span>
+            <span>{site.name.toLowerCase()} / qna</span>
             <span>read before order</span>
           </div>
 
@@ -198,7 +128,7 @@ export default function QnaPage() {
           </p>
 
           <div className="hero-actions">
-            <a className="button primary" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
+            <a className="button primary" href={contact.telegram} target="_blank" rel="noreferrer">
               Order via Telegram
             </a>
             <a className="button secondary" href="/services">View pricing</a>
@@ -210,7 +140,7 @@ export default function QnaPage() {
                 <span className="section-label">order checklist</span>
                 <h2>Yang perlu disiapkan.</h2>
               </div>
-              <a className="inline-link" href="mailto:jrevanaldi@gmail.com">email brief</a>
+              <a className="inline-link" href={`mailto:${contact.email}`}>email brief</a>
             </div>
             <AnimatedAccordion items={orderChecklist} label="Checklist sebelum order" defaultOpenIndex={0} />
           </RevealSection>
@@ -301,10 +231,10 @@ export default function QnaPage() {
           <a href="/">Portfolio</a>
           <a href="/services">Services</a>
           <a href="/#work">Work</a>
-          <a href="mailto:jrevanaldi@gmail.com">Email</a>
+          <a href={`mailto:${contact.email}`}>Email</a>
         </nav>
         <div>
-          <span>&copy;2026 Nathan</span>
+          <span>&copy;2026 {site.brand}</span>
           <a href="/services">Back to services</a>
         </div>
       </footer>

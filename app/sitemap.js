@@ -1,24 +1,12 @@
-export default function sitemap() {
-  const baseUrl = "https://astralune.cv";
+import { site, sitemapRoutes } from "./site.config";
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/qna`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-  ];
+export default function sitemap() {
+  const now = new Date();
+
+  return sitemapRoutes.map((route) => ({
+    url: route.path === "/" ? site.url : `${site.url}${route.path}`,
+    lastModified: now,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
 }

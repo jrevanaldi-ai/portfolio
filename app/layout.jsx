@@ -3,6 +3,7 @@ import "./globals.css";
 import BubbleBackground from "./BubbleBackground";
 import MotionProvider from "./MotionProvider";
 import WelcomeIntro from "./WelcomeIntro";
+import { site } from "./site.config";
 
 const fontDisplay = Caveat({
   subsets: ["latin"],
@@ -25,38 +26,19 @@ const fontMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://astralune.cv";
-const openGraphImage = "https://cloud.yardansh.com/9mHeeg.jpg";
-
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Astralune",
-    template: "%s | Astralune",
+    default: site.name,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Astralune adalah portfolio developer untuk web platform, media digital, dan eksplorasi prototype game. Buka jasa pembuatan website, aplikasi, prototype / alur game, dan bot WhatsApp / Discord / Telegram serta auto responder website.",
-  applicationName: "Astralune",
+  description: site.description,
+  applicationName: site.name,
   generator: "Next.js",
-  keywords: [
-    "Astralune",
-    "Astralune Service",
-    "developer portfolio",
-    "jasa coding",
-    "jasa website",
-    "jasa aplikasi",
-    "jasa game",
-    "jasa bot whatsapp",
-    "jasa bot discord",
-    "jasa bot telegram",
-    "auto responder website",
-    "Next.js developer",
-    "Golang developer",
-    "Rust developer",
-  ],
-  authors: [{ name: "Astralune", url: siteUrl }],
-  creator: "Astralune",
-  publisher: "Astralune",
+  keywords: site.keywords,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
   category: "technology",
   alternates: {
     canonical: "/",
@@ -67,26 +49,24 @@ export const metadata = {
     apple: "/icon.svg",
   },
   openGraph: {
-    title: "Astralune",
-    description:
-      "Portfolio developer untuk web platform, media digital, prototype game, website, aplikasi, dan bot WhatsApp / Discord / Telegram.",
-    url: siteUrl,
-    siteName: "Astralune",
+    title: site.name,
+    description: site.shortDescription,
+    url: site.url,
+    siteName: site.name,
     images: [
       {
-        url: openGraphImage,
-        alt: "Astralune portfolio preview",
+        url: site.ogImage,
+        alt: `${site.name} portfolio preview`,
       },
     ],
     type: "website",
-    locale: "id_ID",
+    locale: site.locale,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Astralune",
-    description:
-      "Portfolio developer untuk web platform, media digital, prototype game, website, aplikasi, dan bot WhatsApp / Discord / Telegram.",
-    images: [openGraphImage],
+    title: site.name,
+    description: site.shortDescription,
+    images: [site.ogImage],
   },
   robots: {
     index: true,
@@ -103,7 +83,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={`${fontDisplay.variable} ${fontHand.variable} ${fontMono.variable}`}>
+    <html lang={site.lang} className={`${fontDisplay.variable} ${fontHand.variable} ${fontMono.variable}`}>
       <body>
         <WelcomeIntro>
           <BubbleBackground />

@@ -5,122 +5,24 @@ import { m, useReducedMotion } from "framer-motion";
 import AppSidebar from "./AppSidebar";
 import SidebarTrigger from "./SidebarTrigger";
 import {
-  SiDocker,
-  SiExpress,
-  SiGit,
-  SiGo,
-  SiJavascript,
-  SiLinux,
-  SiMongodb,
-  SiMysql,
-  SiNeovim,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiRedis,
-  SiRust,
-  SiTypescript,
-  SiWebstorm,
-} from "react-icons/si";
-import { TbApi, TbBrandVscode } from "react-icons/tb";
-
-const portfolioRows = [
-  {
-    label: "Kudonime",
-    href: "https://kudonime.tech",
-    image: "https://cloud.yardansh.com/0gJYes.jpg",
-    description: "Situs hiburan untuk nonton anime, baca manga, dan nonton film.",
-    meta: "Anime · Manga · Film",
-    accent: "linear-gradient(135deg, #ff7eb6 0%, #ffb347 100%)",
-  },
-  {
-    label: "Astralune Prototype",
-    href: "#work",
-    image: "https://cloud.yardansh.com/bumNMq.jpg",
-    description: "Eksplorasi konsep dan alur game MMORPG fantasy — prototype & game flow.",
-    meta: "Game prototype · concept",
-    accent: "linear-gradient(135deg, #8aa1ff 0%, #c89bff 100%)",
-  },
-];
-
-function previewSrc(url) {
-  const params = new URLSearchParams({
-    url,
-    screenshot: "true",
-    meta: "false",
-    embed: "screenshot.url",
-    "viewport.width": "1280",
-    "viewport.height": "960",
-  });
-  return `https://api.microlink.io/?${params.toString()}`;
-}
-
-const stackGroups = [
-  {
-    title: "Bahasa",
-    items: [
-      ["JavaScript", SiJavascript],
-      ["TypeScript", SiTypescript],
-      ["Golang", SiGo],
-      ["Rust", SiRust],
-    ],
-  },
-  {
-    title: "Framework",
-    items: [
-      ["Next.js", SiNextdotjs],
-      ["React", SiReact],
-      ["Node.js", SiNodedotjs],
-      ["Express", SiExpress],
-      ["Gin", SiGo],
-      ["Echo", SiGo],
-      ["Fiber", SiGo],
-      ["Actix", SiRust],
-      ["Rocket", SiRust],
-      ["Leptos", SiRust],
-      ["Axum", SiRust],
-    ],
-  },
-  {
-    title: "Database",
-    items: [
-      ["PostgreSQL", SiPostgresql],
-      ["MySQL", SiMysql],
-      ["MongoDB", SiMongodb],
-      ["Redis", SiRedis],
-    ],
-  },
-  {
-    title: "Tools",
-    items: [
-      ["Git", SiGit],
-      ["Docker", SiDocker],
-      ["Linux", SiLinux],
-      ["REST API", TbApi],
-    ],
-  },
-  {
-    title: "IDE",
-    items: [
-      ["VS Code", TbBrandVscode],
-      ["WebStorm", SiWebstorm],
-      ["Neovim", SiNeovim],
-    ],
-  },
-];
-
-const processRows = [
-  ["Explore", "Mencari ide yang punya karakter kuat, target pengguna jelas, dan ruang berkembang."],
-  ["Prototype", "Membuat versi awal untuk menguji flow, tampilan, performa, dan feel produk."],
-  ["Ship", "Merilis fitur bertahap dengan fokus ke stabilitas, usability, dan feedback nyata."],
-  ["Improve", "Merapikan sistem, memperbaiki bug, menambah konten, dan memperkuat arah project."],
-];
+  site,
+  contact,
+  projects,
+  stackGroups,
+  processSteps,
+  stickers,
+  previewMicrolinkParams,
+} from "./site.config";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0 },
 };
+
+function previewSrc(url) {
+  const params = new URLSearchParams({ url, ...previewMicrolinkParams });
+  return `https://api.microlink.io/?${params.toString()}`;
+}
 
 function MailIcon() {
   return (
@@ -152,6 +54,8 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const [year, setYear] = useState("2026");
   const reduceMotion = useReducedMotion();
+  const gopher = stickers.home.gopher;
+  const ferris = stickers.home.ferris;
 
   const reveal = reduceMotion
     ? {}
@@ -168,14 +72,12 @@ export default function Home() {
   }, []);
 
   async function copyEmail() {
-    const email = "jrevanaldi@gmail.com";
-
     try {
-      await navigator.clipboard.writeText(email);
+      await navigator.clipboard.writeText(contact.email);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
-      window.location.href = `mailto:${email}`;
+      window.location.href = `mailto:${contact.email}`;
     }
   }
 
@@ -183,7 +85,7 @@ export default function Home() {
     <>
       <header className="site-nav">
         <a className="wordmark" href="#home" aria-label="Kembali ke beranda">
-          <span>Nathan</span>
+          <span>{site.brand}</span>
           <small>portfolio</small>
         </a>
         <SidebarTrigger />
@@ -195,29 +97,25 @@ export default function Home() {
           <span className="notebook-tape left" aria-hidden="true" />
           <span className="notebook-tape right" aria-hidden="true" />
 
-          <span
-            className="mascot-sticker"
-            style={{ top: 64, right: 18, width: 74, transform: "rotate(8deg)" }}
-            aria-label="Go gopher sticker"
-          >
-            <img src="/stickers/gopher.png" alt="" />
+          <span className="mascot-sticker" style={gopher.style} aria-label={gopher.label}>
+            <img src={gopher.src} alt="" />
           </span>
 
           <div className="notebook-meta">
-            <a href="https://github.com/jrevanaldi-ai" target="_blank" rel="noreferrer">
-              github.com/jrevanaldi-ai
+            <a href={contact.github} target="_blank" rel="noreferrer">
+              {contact.githubLabel}
             </a>
-            <span>17 y/o · 4 yrs</span>
+            <span>{site.ageYears} y/o · {site.experienceYears} yrs</span>
           </div>
 
           <div className="page-heading">
-            <h1>Astralune</h1>
+            <h1>{site.name}</h1>
           </div>
 
-          <div className="tagline-card">web developer · 4 years experience</div>
+          <div className="tagline-card">web developer · {site.experienceYears} years experience</div>
 
           <p className="hero-text">
-            Saya 17 tahun, 4 tahun ngoding. Fokus utama bikin web platform, aplikasi, dan hiburan
+            Saya {site.ageYears} tahun, {site.experienceYears} tahun ngoding. Fokus utama bikin web platform, aplikasi, dan hiburan
             digital pakai <span className="hl">JavaScript</span>,{" "}
             <span className="hl pink">TypeScript</span>, <span className="hl mint">Golang</span>,
             dan <span className="hl blue">Rust</span>. Selain itu juga main-main di prototype dan
@@ -230,16 +128,12 @@ export default function Home() {
           </div>
 
           <m.div className="sticky-note" {...reveal}>
-            <span
-              className="mascot-sticker"
-              style={{ top: 10, right: 14, width: 62, transform: "rotate(-12deg)" }}
-              aria-label="Ferris the crab sticker"
-            >
-              <img src="/stickers/ferris.png" alt="" />
+            <span className="mascot-sticker" style={ferris.style} aria-label={ferris.label}>
+              <img src={ferris.src} alt="" />
             </span>
             <h3>Profile Note</h3>
             <p>
-              Nathan, lebih dikenal lewat identitas <strong>Astralune</strong>. Developer muda yang
+              {site.brand}, lebih dikenal lewat identitas <strong>{site.name}</strong>. Developer muda yang
               dekat dengan dunia coding, pembuatan game, dan eksplorasi ide-ide digital yang terasa
               personal.
             </p>
@@ -259,7 +153,7 @@ export default function Home() {
             </div>
 
             <div className="polaroid-stack">
-              {portfolioRows.map((row) => (
+              {projects.map((row) => (
                 <a
                   className="polaroid"
                   key={row.label}
@@ -322,7 +216,7 @@ export default function Home() {
             <span className="section-label">process</span>
             <h2>How I build</h2>
             <ol className="process-list">
-              {processRows.map(([title, copy]) => (
+              {processSteps.map(([title, copy]) => (
                 <li key={title}>
                   <strong>{title}</strong>
                   <p>{copy}</p>
@@ -341,13 +235,13 @@ export default function Home() {
             </p>
             <div className="contact-block">
               <div className="contact-icons" aria-label="Contact links">
-                <a className="icon-link" href="mailto:jrevanaldi@gmail.com" aria-label="Email Nathan">
+                <a className="icon-link" href={`mailto:${contact.email}`} aria-label={`Email ${site.brand}`}>
                   <MailIcon />
                 </a>
-                <a className="icon-link" href="https://github.com/jrevanaldi-ai" target="_blank" rel="noreferrer" aria-label="GitHub Nathan">
+                <a className="icon-link" href={contact.github} target="_blank" rel="noreferrer" aria-label={`GitHub ${site.brand}`}>
                   <GitHubIcon />
                 </a>
-                <a className="icon-link" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer" aria-label="Telegram Astralune">
+                <a className="icon-link" href={contact.telegram} target="_blank" rel="noreferrer" aria-label={`Telegram ${site.name}`}>
                   <TelegramIcon />
                 </a>
               </div>
@@ -371,7 +265,7 @@ export default function Home() {
           <a href="#contact">Contact</a>
         </nav>
         <div>
-          <span>&copy;{year} Nathan</span>
+          <span>&copy;{year} {site.brand}</span>
           <a href="#home">Back to top</a>
         </div>
       </footer>

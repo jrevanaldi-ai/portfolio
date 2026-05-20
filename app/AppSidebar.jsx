@@ -3,24 +3,8 @@
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { FiBriefcase, FiHelpCircle, FiHome, FiSend, FiX } from "react-icons/fi";
-
-const sidebarGroups = [
-  {
-    label: "Pages",
-    items: [
-      { href: "/", label: "Portfolio", icon: FiHome, key: "portfolio" },
-      { href: "/services", label: "Services", icon: FiBriefcase, key: "services" },
-      { href: "/qna", label: "QnA", icon: FiHelpCircle, key: "qna" },
-    ],
-  },
-  {
-    label: "Action",
-    items: [
-      { href: "https://t.me/AstraluneTeam2", label: "Order", icon: FiSend, key: "order", external: true },
-    ],
-  },
-];
+import { FiX } from "react-icons/fi";
+import { sidebarMenu, site } from "./site.config";
 
 export default function AppSidebar({ active }) {
   const reduceMotion = useReducedMotion();
@@ -60,7 +44,7 @@ export default function AppSidebar({ active }) {
           >
             <div className="sidebar-header">
               <a className="sidebar-brand" href="/">
-                <span>NT</span>
+                <span>{site.brand.slice(0, 2).toUpperCase()}</span>
                 <strong>portfolio</strong>
               </a>
               <button className="sidebar-close" type="button" aria-label="Close sidebar" onClick={() => setOpen(false)}>
@@ -69,7 +53,7 @@ export default function AppSidebar({ active }) {
             </div>
 
             <div className="sidebar-content">
-              {sidebarGroups.map((group) => (
+              {sidebarMenu.map((group) => (
                 <div className="sidebar-group" key={group.label}>
                   <p>{group.label}</p>
                   <nav className="sidebar-menu" aria-label={group.label}>
