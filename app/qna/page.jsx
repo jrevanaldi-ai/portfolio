@@ -93,12 +93,7 @@ export const metadata = {
       "Panduan sebelum order Astralune Service, termasuk checklist, QnA, struktur project, dan syarat ketentuan.",
     url: "/qna",
     siteName: "Astralune",
-    images: [
-      {
-        url: openGraphImage,
-        alt: "Astralune QnA preview",
-      },
-    ],
+    images: [{ url: openGraphImage, alt: "Astralune QnA preview" }],
     type: "website",
     locale: "id_ID",
   },
@@ -162,9 +157,9 @@ function FileItem({ children, gitStatus, icon: Icon = FiFile }) {
 export default function QnaPage() {
   return (
     <>
-      <header className="site-nav services-nav" id="top">
+      <header className="site-nav" id="top">
         <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
-          <span>NT</span>
+          <span>Nathan</span>
           <small>qna</small>
         </a>
         <SidebarTrigger />
@@ -172,66 +167,70 @@ export default function QnaPage() {
       <AppSidebar active="qna" />
 
       <main>
-        <RevealSection className="guide-hero">
-          <div>
-            <span className="badge">[read before order]</span>
-            <h1>QnA dan S&K sebelum mulai project.</h1>
-            <p>
-              Baca bagian ini dulu sebelum order supaya scope, harga, timeline, revisi, dan
-              kebutuhan project jelas dari awal.
-            </p>
-            <div className="hero-actions">
-              <a className="button primary" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
-                Order via Telegram
-              </a>
-              <a className="button secondary" href="/services">
-                View pricing
-              </a>
-            </div>
-          </div>
-          <div className="guide-summary" aria-label="Order summary">
-            <span>[before contact]</span>
-            <strong>Brief. Scope. Timeline. Deal.</strong>
-            <p>Semakin jelas brief awal, semakin cepat estimasi dan pengerjaan bisa dimulai.</p>
-          </div>
-        </RevealSection>
+        <RevealSection className="notebook">
+          <span className="notebook-tape left" aria-hidden="true" />
+          <span className="notebook-tape right" aria-hidden="true" />
 
-        <RevealSection className="guide-section" id="checklist">
-          <div className="section-head">
-            <div>
-              <p className="section-label">[order checklist]</p>
-              <h2>Yang perlu disiapkan.</h2>
-            </div>
-            <a className="inline-link" href="mailto:jrevanaldi@gmail.com">
-              email brief
-            </a>
-          </div>
-          <AnimatedAccordion items={orderChecklist} label="Checklist sebelum order" defaultOpenIndex={0} />
-        </RevealSection>
+          <div
+            className="sticker-slot"
+            style={{ top: 28, right: 44, width: 80, height: 80, transform: "rotate(10deg)" }}
+            aria-hidden="true"
+          />
 
-        <RevealSection className="guide-section" id="project-reference">
-          <div className="section-head">
-            <div>
-              <p className="section-label">[project reference]</p>
-              <h2>Contoh struktur project yang rapi.</h2>
-            </div>
-            <a className="inline-link" href="/services">
-              service plans
-            </a>
+          <div className="notebook-meta">
+            <span>astralune / qna</span>
+            <span>read before order</span>
           </div>
-          <div className="project-reference">
-            <div>
-              <p>
-                Ini contoh gambaran struktur project yang dipakai sebagai referensi saat handoff.
-                Folder dipisah berdasarkan fungsi supaya client mudah membaca, deploy, dan
-                melanjutkan pengembangan.
-              </p>
-              <div className="reference-points">
-                <span>[+] route dan halaman jelas</span>
-                <span>[+] komponen reusable dipisah</span>
-                <span>[+] logic/API tidak dicampur UI</span>
-                <span>[+] README untuk setup dan deploy</span>
+
+          <div className="page-heading">
+            <h1>QnA &amp; S&amp;K</h1>
+          </div>
+
+          <div className="tagline-card">brief · scope · timeline · deal</div>
+
+          <p className="hero-text">
+            Baca bagian ini dulu sebelum order supaya{" "}
+            <span className="hl">scope</span>, <span className="hl pink">harga</span>,{" "}
+            <span className="hl mint">timeline</span>, revisi, dan kebutuhan project jelas dari
+            awal.
+          </p>
+
+          <div className="hero-actions">
+            <a className="button primary" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
+              Order via Telegram
+            </a>
+            <a className="button secondary" href="/services">View pricing</a>
+          </div>
+
+          <RevealSection className="section" id="checklist">
+            <div className="section-head">
+              <div>
+                <span className="section-label">order checklist</span>
+                <h2>Yang perlu disiapkan.</h2>
               </div>
+              <a className="inline-link" href="mailto:jrevanaldi@gmail.com">email brief</a>
+            </div>
+            <AnimatedAccordion items={orderChecklist} label="Checklist sebelum order" defaultOpenIndex={0} />
+          </RevealSection>
+
+          <RevealSection className="section" id="project-reference">
+            <div className="section-head">
+              <div>
+                <span className="section-label">project reference</span>
+                <h2>Struktur project yang rapi.</h2>
+              </div>
+              <a className="inline-link" href="/services">service plans</a>
+            </div>
+            <p className="hero-text">
+              Ini contoh gambaran struktur project yang dipakai sebagai referensi saat handoff.
+              Folder dipisah berdasarkan fungsi supaya client mudah membaca, deploy, dan melanjutkan
+              pengembangan.
+            </p>
+            <div className="reference-points">
+              <span>[+] route dan halaman jelas</span>
+              <span>[+] komponen reusable dipisah</span>
+              <span>[+] logic/API tidak dicampur UI</span>
+              <span>[+] README untuk setup dan deploy</span>
             </div>
             <Files>
               <FolderItem value="app">
@@ -247,14 +246,12 @@ export default function QnaPage() {
                         </SubFiles>
                       </FolderContent>
                     </FolderItem>
-
                     <FileItem>layout.jsx</FileItem>
                     <FileItem gitStatus="modified">page.jsx</FileItem>
                     <FileItem>globals.css</FileItem>
                   </SubFiles>
                 </FolderContent>
               </FolderItem>
-
               <FolderItem value="components">
                 <FolderTrigger>components</FolderTrigger>
                 <FolderContent>
@@ -268,7 +265,6 @@ export default function QnaPage() {
                   </SubFiles>
                 </FolderContent>
               </FolderItem>
-
               <FolderItem value="lib">
                 <FolderTrigger>lib</FolderTrigger>
                 <FolderContent>
@@ -279,23 +275,22 @@ export default function QnaPage() {
                   </SubFiles>
                 </FolderContent>
               </FolderItem>
-
               <FileItem icon={FiFileText}>README.md</FileItem>
               <FileItem icon={FiFileText}>package.json</FileItem>
             </Files>
-          </div>
-        </RevealSection>
+          </RevealSection>
 
-        <RevealSection className="guide-section" id="questions">
-          <p className="section-label">[qna]</p>
-          <h2>Pertanyaan umum.</h2>
-          <AnimatedAccordion items={qnaItems} label="Pertanyaan umum jasa coding" />
-        </RevealSection>
+          <RevealSection className="section" id="questions">
+            <span className="section-label">qna</span>
+            <h2>Pertanyaan umum.</h2>
+            <AnimatedAccordion items={qnaItems} label="Pertanyaan umum jasa coding" />
+          </RevealSection>
 
-        <RevealSection className="guide-section guide-last" id="terms">
-          <p className="section-label">[s&k]</p>
-          <h2>Syarat dan ketentuan.</h2>
-          <AnimatedAccordion items={termsItems} label="Syarat dan ketentuan order" />
+          <RevealSection className="section" id="terms">
+            <span className="section-label">s&amp;k</span>
+            <h2>Syarat dan ketentuan.</h2>
+            <AnimatedAccordion items={termsItems} label="Syarat dan ketentuan order" />
+          </RevealSection>
         </RevealSection>
       </main>
 

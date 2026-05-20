@@ -8,7 +8,7 @@ const servicePlans = [
   {
     name: "Website",
     price: "Mulai Rp750K",
-    tag: "Landing / portfolio / company profile",
+    tag: "Landing · portfolio · company profile",
     description:
       "Untuk personal brand, bisnis kecil, portfolio, campaign page, atau website informasi yang rapi dan cepat.",
     features: ["Responsive UI", "Modern landing page", "SEO basic", "Deploy assistance"],
@@ -16,16 +16,16 @@ const servicePlans = [
   {
     name: "Application",
     price: "Mulai Rp2.5JT",
-    tag: "Web app / dashboard / custom system",
+    tag: "Web app · dashboard · custom system",
     description:
-      "Untuk aplikasi dengan fitur login, dashboard, data flow, API integration, dan kebutuhan bisnis yang lebih spesifik.",
+      "Untuk aplikasi dengan fitur login, dashboard, data flow, API integration, dan kebutuhan bisnis spesifik.",
     features: ["Frontend + backend", "Database design", "Auth flow", "Admin dashboard"],
     featured: true,
   },
   {
     name: "Game",
     price: "Mulai Rp3JT",
-    tag: "Prototype / web game / multiplayer concept",
+    tag: "Prototype · web game · multiplayer concept",
     description:
       "Untuk prototype game, sistem gameplay, UI game, atau fondasi awal project seperti RPG dan online game.",
     features: ["Game loop", "Gameplay systems", "UI / HUD", "Prototype build"],
@@ -33,17 +33,17 @@ const servicePlans = [
   {
     name: "Custom Project",
     price: "Sesuai request",
-    tag: "Custom scope / request khusus / ide unik",
+    tag: "Custom scope · request khusus · ide unik",
     description:
-      "Untuk kebutuhan khusus yang tidak masuk paket standar, dibuat sesuai request, target, fitur, dan budget user.",
+      "Untuk kebutuhan khusus yang tidak masuk paket standar, dibuat sesuai request, target, fitur, dan budget.",
     features: ["Scope fleksibel", "Fitur sesuai request", "Estimasi custom", "Diskusi kebutuhan"],
   },
 ];
 
 const serviceRows = [
-  ["[+]", "Tech stack", "JavaScript, TypeScript, Golang, Rust"],
-  ["[+]", "Delivery", "Scope jelas, progress bertahap, dan hasil bisa diuji"],
-  ["[x]", "Best for", "Website, aplikasi custom, dashboard, game prototype, dan custom project"],
+  ["Tech stack", "JavaScript, TypeScript, Golang, Rust"],
+  ["Delivery", "Scope jelas, progress bertahap, dan hasil bisa diuji"],
+  ["Best for", "Website, aplikasi custom, dashboard, game prototype, custom project"],
 ];
 
 export const metadata = {
@@ -59,12 +59,7 @@ export const metadata = {
       "Jasa coding website, aplikasi, dashboard, custom system, dan prototype game.",
     url: "/services",
     siteName: "Astralune",
-    images: [
-      {
-        url: openGraphImage,
-        alt: "Astralune service preview",
-      },
-    ],
+    images: [{ url: openGraphImage, alt: "Astralune service preview" }],
     type: "website",
     locale: "id_ID",
   },
@@ -80,9 +75,9 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <header className="site-nav services-nav" id="top">
+      <header className="site-nav" id="top">
         <a className="wordmark" href="/" aria-label="Kembali ke portfolio">
-          <span>NT</span>
+          <span>Nathan</span>
           <small>services</small>
         </a>
         <SidebarTrigger />
@@ -90,78 +85,87 @@ export default function ServicesPage() {
       <AppSidebar active="services" />
 
       <main>
-        <RevealSection className="service-hero">
-          <div>
-            <span className="badge">[coding services / website / app / game]</span>
-            <h1>Jasa coding untuk produk yang siap dipakai.</h1>
-            <p>
-              Saya membuka jasa pembuatan website, aplikasi, dan game. Cocok untuk personal
-              project, bisnis, dashboard internal, media platform, sampai prototype game.
-            </p>
-            <div className="hero-actions">
-              <a className="button primary" href="/qna">
-                Read before order
-              </a>
-              <a className="button secondary" href="mailto:jrevanaldi@gmail.com">
-                Request quotation
-              </a>
-              <a className="button secondary" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">
-                Telegram
-              </a>
-            </div>
+        <RevealSection className="notebook">
+          <span className="notebook-tape left" aria-hidden="true" />
+          <span className="notebook-tape right" aria-hidden="true" />
+
+          <div
+            className="sticker-slot"
+            style={{ top: 32, right: 48, width: 84, height: 84, transform: "rotate(-6deg)" }}
+            aria-hidden="true"
+          />
+
+          <div className="notebook-meta">
+            <span>astralune / services</span>
+            <span>website · app · game</span>
           </div>
-          <div className="service-spotlight" aria-label="Service summary">
-            <span>currently accepting</span>
+
+          <div className="page-heading">
+            <h1>Services</h1>
+          </div>
+
+          <div className="tagline-card">jasa coding · website · app · game</div>
+
+          <p className="hero-text">
+            Buka jasa pembuatan <span className="hl">website</span>,{" "}
+            <span className="hl pink">aplikasi</span>, dan{" "}
+            <span className="hl mint">game</span>. Cocok untuk personal project, bisnis,
+            dashboard internal, media platform, sampai prototype game.
+          </p>
+
+          <div className="hero-actions">
+            <a className="button primary" href="/qna">Read before order</a>
+            <a className="button secondary" href="mailto:jrevanaldi@gmail.com">Request quotation</a>
+            <a className="button secondary" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer">Telegram</a>
+          </div>
+
+          <div className="spotlight">
+            <span>[ currently accepting ]</span>
             <strong>Website. App. Game.</strong>
             <p>Build from concept, UI, code, integration, until deploy-ready handoff.</p>
           </div>
-        </RevealSection>
 
-        <RevealSection className="pricing-section" id="pricing" ariaLabel="Harga jasa coding">
-          <div className="section-head">
-            <div>
-              <p className="section-label">[pricing plans]</p>
-              <h2>Pilih plan sesuai scope.</h2>
+          <RevealSection className="section" id="pricing" ariaLabel="Harga jasa coding">
+            <div className="section-head">
+              <div>
+                <span className="section-label">pricing plans</span>
+                <h2>Pilih plan sesuai scope.</h2>
+              </div>
+              <a className="inline-link" href="mailto:jrevanaldi@gmail.com">custom quote</a>
             </div>
-            <a className="inline-link" href="mailto:jrevanaldi@gmail.com">
-              custom quote
-            </a>
-          </div>
 
-          <div className="pricing-grid">
-            {servicePlans.map((plan) => (
-              <MotionCard className={plan.featured ? "pricing-card featured" : "pricing-card"} key={plan.name}>
-                {plan.featured && <span className="plan-badge">Recommended</span>}
-                <div>
-                  <p>{plan.tag}</p>
+            <div className="pricing-grid">
+              {servicePlans.map((plan) => (
+                <MotionCard className={plan.featured ? "pricing-card featured" : "pricing-card"} key={plan.name}>
+                  {plan.featured && <span className="plan-badge">Recommended</span>}
+                  <p className="plan-tag">{plan.tag}</p>
                   <h3>{plan.name}</h3>
-                  <strong>{plan.price}</strong>
-                </div>
-                <p>{plan.description}</p>
-                <ul>
-                  {plan.features.map((feature) => (
-                    <li key={feature}>[+] {feature}</li>
-                  ))}
-                </ul>
-                <a className={plan.featured ? "button primary" : "button secondary"} href="mailto:jrevanaldi@gmail.com">
-                  Discuss {plan.name}
-                </a>
-              </MotionCard>
-            ))}
-          </div>
-        </RevealSection>
+                  <span className="plan-price">{plan.price}</span>
+                  <p>{plan.description}</p>
+                  <ul>
+                    {plan.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                  <a className={plan.featured ? "button primary" : "button secondary"} href="mailto:jrevanaldi@gmail.com">
+                    Discuss {plan.name}
+                  </a>
+                </MotionCard>
+              ))}
+            </div>
+          </RevealSection>
 
-        <RevealSection className="content-section service-notes" id="how-it-works">
-          <p className="section-label">[how it works]</p>
-          <div className="list-block compact">
-            {serviceRows.map(([marker, label, value]) => (
-              <article className="list-row" key={label}>
-                <span>{marker}</span>
-                <strong>{label}</strong>
-                <p>{value}</p>
-              </article>
-            ))}
-          </div>
+          <RevealSection className="section" id="how-it-works">
+            <span className="section-label">how it works</span>
+            <h2>Proses ringkas.</h2>
+            <div className="stack-list">
+              {serviceRows.map(([label, value]) => (
+                <div className="stack-row" key={label}>
+                  <strong>{label}.</strong> <span>{value}</span>
+                </div>
+              ))}
+            </div>
+          </RevealSection>
         </RevealSection>
       </main>
 

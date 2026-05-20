@@ -27,14 +27,14 @@ import { TbApi, TbBrandVscode } from "react-icons/tb";
 
 const portfolioRows = [
   {
-    marker: "[+]",
+    tag: "[+] project",
     label: "Kudonime",
     value: "Situs hiburan untuk nonton anime, baca manga, dan nonton film di kudonime.tech.",
     href: "https://kudonime.tech",
-    meta: "Anime / Manga / Film platform",
+    meta: "Anime · Manga · Film platform",
   },
   {
-    marker: "[+]",
+    tag: "[+] project",
     label: "Astralune MMORPG",
     value: "Project game MMORPG dengan arah dunia fantasi online, progression, dan social gameplay.",
     href: "#work",
@@ -42,12 +42,9 @@ const portfolioRows = [
   },
 ];
 
-const carouselRows = [...portfolioRows, ...portfolioRows];
-
 const stackGroups = [
   {
-    title: "Bahasa Pemrograman",
-    marker: "[lang]",
+    title: "Bahasa",
     items: [
       ["JavaScript", SiJavascript],
       ["TypeScript", SiTypescript],
@@ -57,13 +54,12 @@ const stackGroups = [
   },
   {
     title: "Framework",
-    marker: "[fw]",
     items: [
       ["Next.js", SiNextdotjs],
       ["React", SiReact],
       ["Node.js", SiNodedotjs],
       ["Express", SiExpress],
-      ["Gin Gonic", SiGo],
+      ["Gin", SiGo],
       ["Echo", SiGo],
       ["Fiber", SiGo],
       ["Actix", SiRust],
@@ -74,7 +70,6 @@ const stackGroups = [
   },
   {
     title: "Database",
-    marker: "[db]",
     items: [
       ["PostgreSQL", SiPostgresql],
       ["MySQL", SiMysql],
@@ -84,7 +79,6 @@ const stackGroups = [
   },
   {
     title: "Tools",
-    marker: "[tool]",
     items: [
       ["Git", SiGit],
       ["Docker", SiDocker],
@@ -94,7 +88,6 @@ const stackGroups = [
   },
   {
     title: "IDE",
-    marker: "[ide]",
     items: [
       ["VS Code", TbBrandVscode],
       ["WebStorm", SiWebstorm],
@@ -104,40 +97,16 @@ const stackGroups = [
 ];
 
 const processRows = [
-  ["01", "Explore", "Mencari ide yang punya karakter kuat, target pengguna jelas, dan ruang berkembang."],
-  ["02", "Prototype", "Membuat versi awal untuk menguji flow, tampilan, performa, dan feel produk."],
-  ["03", "Ship", "Merilis fitur bertahap dengan fokus ke stabilitas, usability, dan feedback nyata."],
-  ["04", "Improve", "Merapikan sistem, memperbaiki bug, menambah konten, dan memperkuat arah project."],
+  ["Explore", "Mencari ide yang punya karakter kuat, target pengguna jelas, dan ruang berkembang."],
+  ["Prototype", "Membuat versi awal untuk menguji flow, tampilan, performa, dan feel produk."],
+  ["Ship", "Merilis fitur bertahap dengan fokus ke stabilitas, usability, dan feedback nyata."],
+  ["Improve", "Merapikan sistem, memperbaiki bug, menambah konten, dan memperkuat arah project."],
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0 },
 };
-
-const stagger = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.07,
-    },
-  },
-};
-
-function AsciiLogo() {
-  return (
-    <pre className="ascii-logo" aria-label="Nathan">
-{`███╗   ██╗████████╗
-████╗  ██║╚══██╔══╝
-██╔██╗ ██║   ██║
-██║╚██╗██║   ██║
-██║ ╚████║   ██║
-╚═╝  ╚═══╝   ╚═╝
-
-NATHAN / DEVELOPER`}
-    </pre>
-  );
-}
 
 function MailIcon() {
   return (
@@ -169,7 +138,8 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const [year, setYear] = useState("2026");
   const reduceMotion = useReducedMotion();
-  const motionProps = reduceMotion
+
+  const reveal = reduceMotion
     ? {}
     : {
         initial: "hidden",
@@ -199,7 +169,7 @@ export default function Home() {
     <>
       <header className="site-nav">
         <a className="wordmark" href="#home" aria-label="Kembali ke beranda">
-          <span>NT</span>
+          <span>Nathan</span>
           <small>portfolio</small>
         </a>
         <SidebarTrigger />
@@ -207,182 +177,145 @@ export default function Home() {
       <AppSidebar active="portfolio" />
 
       <main id="home">
-        <m.section className="hero-shell" initial="hidden" animate="show" variants={stagger}>
-          <div className="hero-copy">
-            <m.span className="badge" variants={fadeUp}>
-              [17 year old developer / 4 years experience]
-            </m.span>
-            <m.h1 variants={fadeUp}>I build digital worlds, media platforms, and game systems.</m.h1>
-            <m.p variants={fadeUp}>
-              Saya adalah developer berusia 17 tahun dengan 4 tahun pengalaman, menguasai
-              JavaScript, TypeScript, Golang, dan Rust untuk membangun web platform, hiburan
-              digital, dan game MMORPG.
-            </m.p>
-            <m.div className="hero-actions" variants={fadeUp}>
-              <a className="button primary" href="#work">
-                View work
-              </a>
-              <a className="button secondary" href="/services">
-                View services
-              </a>
-            </m.div>
-          </div>
+        <m.section className="notebook" initial="hidden" animate="show" variants={fadeUp} transition={{ duration: 0.5, ease: "easeOut" }}>
+          <span className="notebook-tape left" aria-hidden="true" />
+          <span className="notebook-tape right" aria-hidden="true" />
 
-          <m.div className="terminal-card" aria-label="Portfolio terminal preview" variants={fadeUp}>
-            <AsciiLogo />
-            <div className="prompt-row">
-              <span>|</span>
-              <strong>Build</strong>
-              <span>nathan-portfolio</span>
-              <em>Next.js</em>
-            </div>
-            <div className="terminal-output">
-              <p>[+] name........ Nathan</p>
-              <p>[+] alias....... Astralune Dev</p>
-              <p>[+] age......... 17</p>
-              <p>[+] role........ developer</p>
-              <p>[x] stack....... JS, TS, Go, Rust</p>
-            </div>
-            <div className="terminal-hints">
-              <span>tab switch section</span>
-              <span>ctrl-k contact</span>
-            </div>
-          </m.div>
-        </m.section>
+          <div
+            className="sticker-slot"
+            style={{ top: 26, right: 60, width: 92, height: 92, transform: "rotate(8deg)" }}
+            aria-hidden="true"
+          />
 
-        <m.section className="metric-grid" aria-label="Experience metrics" {...motionProps}>
-          {[
-            ["17", "years old"],
-            ["4y", "development"],
-            ["4", "core languages"],
-          ].map(([number, label]) => (
-            <m.article key={label} whileHover={reduceMotion ? undefined : { y: -3 }}>
-              <strong>{number}</strong>
-              <span>{label}</span>
-            </m.article>
-          ))}
-        </m.section>
-
-        <m.section className="content-section split" {...motionProps}>
-          <div>
-            <p className="section-label">[profile]</p>
-            <h2>A young developer turning entertainment ideas into real products.</h2>
-          </div>
-          <p>
-            Saya membangun project dari sisi teknis dan konsep produk. Dengan pengalaman 4 tahun
-            sebagai developer, fokus saya adalah membuat platform yang bisa dipakai pengguna
-            nyata, mulai dari web platform, aplikasi custom, sampai sistem game.
-          </p>
-        </m.section>
-
-        <m.section className="content-section" id="work" {...motionProps}>
-          <div className="section-head">
-            <div>
-              <p className="section-label">[selected work]</p>
-              <h2>Project portfolio</h2>
-            </div>
-            <a className="inline-link" href="/services">
-              view coding services
+          <div className="notebook-meta">
+            <a href="https://github.com/jrevanaldi-ai" target="_blank" rel="noreferrer">
+              github.com/jrevanaldi-ai
             </a>
+            <span>17 y/o · 4 yrs</span>
           </div>
 
-          <div className="list-block">
-            <div className="project-carousel" aria-label="Project carousel">
-              <m.div className="project-track" drag="x" dragElastic={0.08} dragMomentum>
-                {carouselRows.map((row, index) => (
-                  <a
-                    className="project-slide"
-                    key={`${row.label}-${index}`}
-                    href={row.href}
-                    target={row.href.startsWith("http") ? "_blank" : undefined}
-                    rel={row.href.startsWith("http") ? "noreferrer" : undefined}
-                    aria-hidden={index >= portfolioRows.length ? "true" : undefined}
-                    tabIndex={index >= portfolioRows.length ? -1 : undefined}
-                  >
-                    <span>{row.marker} project</span>
-                    <strong>{row.label}</strong>
-                    <p>{row.value}</p>
-                    <small>{row.meta}</small>
-                  </a>
-                ))}
-              </m.div>
-            </div>
+          <div className="page-heading">
+            <h1>Astralune</h1>
           </div>
-        </m.section>
 
-        <m.section className="content-section" id="expertise" {...motionProps}>
-          <p className="section-label">[stack]</p>
-          <h2>Stack yang saya gunakan.</h2>
-          <div className="stack-grid">
-            {stackGroups.map((group) => (
-              <m.article className="stack-card" key={group.title} whileHover={reduceMotion ? undefined : { y: -4 }}>
-                <span>{group.marker}</span>
-                <h3>{group.title}</h3>
-                <div>
-                  {group.items.map(([item, Icon]) => (
-                    <small key={item}>
-                      <Icon aria-hidden="true" />
-                      {item}
-                    </small>
-                  ))}
-                </div>
-              </m.article>
-            ))}
+          <div className="tagline-card">vibe coder, web platform, game developer</div>
+
+          <p className="hero-text">
+            Saya 17 tahun, 4 tahun ngoding. Bikin web platform, hiburan digital, dan game MMORPG
+            pakai <span className="hl">JavaScript</span>, <span className="hl pink">TypeScript</span>,{" "}
+            <span className="hl mint">Golang</span>, dan <span className="hl blue">Rust</span>.
+          </p>
+
+          <div className="hero-actions">
+            <a className="button primary" href="#work">View work</a>
+            <a className="button secondary" href="/services">View services</a>
           </div>
-        </m.section>
 
-        <m.section className="content-section" id="process" {...motionProps}>
-          <p className="section-label">[process]</p>
-          <h2>How I build</h2>
-          <div className="process-grid">
-            {processRows.map(([step, title, copy]) => (
-              <article key={step}>
-                <span>{step}</span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </article>
-            ))}
-          </div>
-        </m.section>
-
-        <m.section className="content-section contact" id="contact" {...motionProps}>
-          <div>
-            <p className="section-label">[contact]</p>
-            <h2>Follow the projects and the build journey.</h2>
+          <m.div className="sticky-note" {...reveal}>
+            <div
+              className="sticker-slot"
+              style={{ top: -32, right: -12, width: 76, height: 76, transform: "rotate(-12deg)" }}
+              aria-hidden="true"
+            />
+            <h3>Profile Note</h3>
             <p>
-              Saya membuka jasa pembuatan website, aplikasi, dan game. Untuk melihat project yang
-              sudah dibuat, gunakan carousel di section portfolio.
+              Nathan, lebih dikenal lewat identitas <strong>Astralune</strong>. Developer muda yang
+              dekat dengan dunia coding, pembuatan game, dan eksplorasi ide-ide digital yang terasa
+              personal.
             </p>
-          </div>
-          <div className="contact-box">
-            <div className="contact-icons" aria-label="Contact links">
-              <a className="icon-link" href="mailto:jrevanaldi@gmail.com" aria-label="Email Nathan">
-                <MailIcon />
-              </a>
-              <a
-                className="icon-link"
-                href="https://github.com/jrevanaldi-ai"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub Nathan"
-              >
-                <GitHubIcon />
-              </a>
-              <a
-                className="icon-link"
-                href="https://t.me/AstraluneTeam2"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Telegram Astralune Team"
-              >
-                <TelegramIcon />
-              </a>
+            <p>
+              Bangun project dari sisi teknis dan konsep produk — mulai dari web platform, aplikasi
+              custom, sampai sistem game yang bisa dipakai pengguna nyata.
+            </p>
+          </m.div>
+
+          <m.section className="section" id="work" {...reveal}>
+            <div className="section-head">
+              <div>
+                <span className="section-label">selected work</span>
+                <h2>Project portfolio</h2>
+              </div>
+              <a className="inline-link" href="/services">view coding services</a>
             </div>
-            <span>Website / Application / Game</span>
-            <button className="button primary" type="button" onClick={copyEmail}>
-              {copied ? "Email copied" : "Copy email"}
-            </button>
-          </div>
+
+            <div className="cards-stack">
+              {portfolioRows.map((row) => (
+                <a
+                  className="index-card"
+                  key={row.label}
+                  href={row.href}
+                  target={row.href.startsWith("http") ? "_blank" : undefined}
+                  rel={row.href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  <span className="tag">{row.tag}</span>
+                  <strong>{row.label}</strong>
+                  <p>{row.value}</p>
+                  <span className="meta">{row.meta}</span>
+                </a>
+              ))}
+            </div>
+          </m.section>
+
+          <m.section className="section" id="expertise" {...reveal}>
+            <span className="section-label">stack</span>
+            <h2>Stack yang dipakai</h2>
+            <div className="stack-list">
+              {stackGroups.map((group) => (
+                <div className="stack-row" key={group.title}>
+                  <strong>{group.title}.</strong>
+                  <div className="pill-row">
+                    {group.items.map(([item, Icon]) => (
+                      <span className="pill" key={item}>
+                        <Icon aria-hidden="true" />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </m.section>
+
+          <m.section className="section" id="process" {...reveal}>
+            <span className="section-label">process</span>
+            <h2>How I build</h2>
+            <ol className="process-list">
+              {processRows.map(([title, copy]) => (
+                <li key={title}>
+                  <strong>{title}</strong>
+                  <p>{copy}</p>
+                </li>
+              ))}
+            </ol>
+          </m.section>
+
+          <m.section className="section" id="contact" {...reveal}>
+            <span className="section-label">contact</span>
+            <h2>Let&apos;s build something.</h2>
+            <p className="hero-text">
+              Buka jasa pembuatan website, aplikasi, dan game. Cek section portfolio untuk lihat
+              project yang sudah dibuat.
+            </p>
+            <div className="contact-block">
+              <div className="contact-icons" aria-label="Contact links">
+                <a className="icon-link" href="mailto:jrevanaldi@gmail.com" aria-label="Email Nathan">
+                  <MailIcon />
+                </a>
+                <a className="icon-link" href="https://github.com/jrevanaldi-ai" target="_blank" rel="noreferrer" aria-label="GitHub Nathan">
+                  <GitHubIcon />
+                </a>
+                <a className="icon-link" href="https://t.me/AstraluneTeam2" target="_blank" rel="noreferrer" aria-label="Telegram Astralune">
+                  <TelegramIcon />
+                </a>
+              </div>
+              <div>
+                <button className="button primary" type="button" onClick={copyEmail}>
+                  {copied ? "Email copied ✓" : "Copy email"}
+                </button>
+                <span className="copy-pill" style={{ marginLeft: 10 }}>website · app · game</span>
+              </div>
+            </div>
+          </m.section>
         </m.section>
       </main>
 

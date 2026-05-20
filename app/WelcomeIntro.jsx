@@ -5,13 +5,14 @@ import { useEffect, useMemo, useState } from "react";
 const SESSION_KEY = "nathan-welcome-seen";
 const WELCOME_DURATION = 5000;
 
-const welcomeCode = `const visitor = {
-  status: "welcome",
-  destination: "Nathan Portfolio",
-  services: ["website", "application", "game"],
-};
+const welcomeCode = `Dear visitor,
 
-boot(visitor);`;
+welcome to my notebook —
+a small collection of ideas,
+projects, and notes about
+what I build.
+
+— Nathan / Astralune`;
 
 export default function WelcomeIntro({ children }) {
   const [ready, setReady] = useState(false);
@@ -59,20 +60,14 @@ export default function WelcomeIntro({ children }) {
     <div className="welcome-intro" role="status" aria-live="polite" aria-label="Welcome intro">
       <div className="welcome-code">
         <div className="welcome-code-header">
-          <div>
-            <span />
-            <span />
-            <span />
-          </div>
-          <strong>welcome.js</strong>
+          <strong>note.txt</strong>
           <small>5s</small>
         </div>
         <pre className="welcome-code-block">
           <code>
             {lines.map((line, index) => (
               <span className="welcome-code-line" key={`${line}-${index}`}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <span>{line}</span>
+                {line || " "}
               </span>
             ))}
             <span className="welcome-cursor" />

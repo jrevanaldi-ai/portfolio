@@ -1,7 +1,29 @@
+import { Caveat, Kalam, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import BubbleBackground from "./BubbleBackground";
 import MotionProvider from "./MotionProvider";
 import WelcomeIntro from "./WelcomeIntro";
+
+const fontDisplay = Caveat({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const fontHand = Kalam({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-hand",
+  display: "swap",
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 const siteUrl = "https://astralune.cv";
 const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
@@ -77,7 +99,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id">
+    <html lang="id" className={`${fontDisplay.variable} ${fontHand.variable} ${fontMono.variable}`}>
       <body>
         <WelcomeIntro>
           <BubbleBackground />
