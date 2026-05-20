@@ -173,7 +173,7 @@ export default function QnaPage() {
 
           <span
             className="mascot-sticker"
-            style={{ top: 8, right: 22, width: 90, transform: "rotate(8deg)" }}
+            style={{ top: -52, right: 18, width: 72, transform: "rotate(8deg)" }}
             aria-label="Java Duke mascot sticker"
           >
             <img src="/stickers/duke.png" alt="" />
