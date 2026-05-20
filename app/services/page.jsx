@@ -23,12 +23,12 @@ const servicePlans = [
     featured: true,
   },
   {
-    name: "Game",
-    price: "Mulai Rp3JT",
-    tag: "Prototype · web game · multiplayer concept",
+    name: "Game Prototype",
+    price: "Mulai Rp2JT",
+    tag: "Prototype · alur game · konsep early build",
     description:
-      "Untuk prototype game, sistem gameplay, UI game, atau fondasi awal project seperti RPG dan online game.",
-    features: ["Game loop", "Gameplay systems", "UI / HUD", "Prototype build"],
+      "Untuk prototype, alur gameplay, UI dasar, atau eksplorasi konsep awal — bukan production game penuh. Cocok buat validasi ide, demo, atau fondasi project sebelum dilanjutin ke studio lain.",
+    features: ["Prototype build", "Alur & game flow", "UI dasar / HUD", "Konsep gameplay"],
   },
   {
     name: "Bot & Automation",
@@ -51,13 +51,13 @@ const servicePlans = [
 const serviceRows = [
   ["Tech stack", "JavaScript, TypeScript, Golang, Rust"],
   ["Delivery", "Scope jelas, progress bertahap, dan hasil bisa diuji"],
-  ["Best for", "Website, aplikasi custom, dashboard, game prototype, bot WhatsApp/Discord/Telegram, auto responder"],
+  ["Best for", "Website, aplikasi custom, dashboard, prototype / alur game, bot WhatsApp/Discord/Telegram, auto responder"],
 ];
 
 export const metadata = {
   title: "Astralune Service",
   description:
-    "Astralune Service menyediakan jasa coding untuk website, aplikasi, dashboard, custom system, prototype game, dan bot WhatsApp/Discord/Telegram serta auto responder website.",
+    "Astralune Service menyediakan jasa coding untuk website, aplikasi, dashboard, custom system, prototype / alur game, dan bot WhatsApp/Discord/Telegram serta auto responder website.",
   alternates: {
     canonical: "/services",
   },
@@ -112,12 +112,12 @@ export default function ServicesPage() {
             <h1>Services</h1>
           </div>
 
-          <div className="tagline-card">website · app · game · bot · automation</div>
+          <div className="tagline-card">website · app · prototype · bot · automation</div>
 
           <p className="hero-text">
             Buka jasa pembuatan <span className="hl">website</span>,{" "}
             <span className="hl pink">aplikasi</span>,{" "}
-            <span className="hl mint">game</span>, dan{" "}
+            <span className="hl mint">prototype / alur game</span>, dan{" "}
             <span className="hl blue">bot WhatsApp / Discord / Telegram</span> termasuk
             auto responder untuk website.
           </p>
@@ -130,7 +130,7 @@ export default function ServicesPage() {
 
           <div className="spotlight">
             <span>[ currently accepting ]</span>
-            <strong>Website. App. Game. Bot.</strong>
+            <strong>Website. App. Prototype. Bot.</strong>
             <p>Build from concept, UI, code, integration, until deploy-ready handoff.</p>
           </div>
 

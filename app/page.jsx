@@ -35,10 +35,10 @@ const portfolioRows = [
   },
   {
     tag: "[+] project",
-    label: "Astralune MMORPG",
-    value: "Project game MMORPG dengan arah dunia fantasi online, progression, dan social gameplay.",
+    label: "Astralune Prototype",
+    value: "Project sampingan eksplorasi konsep dan alur game MMORPG fantasy — fokus ke prototype dan game flow, bukan production penuh.",
     href: "#work",
-    meta: "Fantasy MMORPG project",
+    meta: "Game prototype · concept exploration",
   },
 ];
 
@@ -198,12 +198,14 @@ export default function Home() {
             <h1>Astralune</h1>
           </div>
 
-          <div className="tagline-card">vibe coder, web platform, game developer</div>
+          <div className="tagline-card">web developer · 4 years experience</div>
 
           <p className="hero-text">
-            Saya 17 tahun, 4 tahun ngoding. Bikin web platform, hiburan digital, dan game MMORPG
-            pakai <span className="hl">JavaScript</span>, <span className="hl pink">TypeScript</span>,{" "}
-            <span className="hl mint">Golang</span>, dan <span className="hl blue">Rust</span>.
+            Saya 17 tahun, 4 tahun ngoding. Fokus utama bikin web platform, aplikasi, dan hiburan
+            digital pakai <span className="hl">JavaScript</span>,{" "}
+            <span className="hl pink">TypeScript</span>, <span className="hl mint">Golang</span>,
+            dan <span className="hl blue">Rust</span>. Selain itu juga main-main di prototype dan
+            alur game.
           </p>
 
           <div className="hero-actions">
@@ -293,9 +295,9 @@ export default function Home() {
             <span className="section-label">contact</span>
             <h2>Let&apos;s build something.</h2>
             <p className="hero-text">
-              Buka jasa pembuatan website, aplikasi, game, dan bot WhatsApp / Discord / Telegram
-              (termasuk auto responder website). Cek section portfolio untuk lihat project yang
-              sudah dibuat.
+              Buka jasa pembuatan website, aplikasi, prototype game, dan bot WhatsApp / Discord /
+              Telegram (termasuk auto responder website). Cek section portfolio untuk lihat project
+              yang sudah dibuat.
             </p>
             <div className="contact-block">
               <div className="contact-icons" aria-label="Contact links">
@@ -313,7 +315,7 @@ export default function Home() {
                 <button className="button primary" type="button" onClick={copyEmail}>
                   {copied ? "Email copied ✓" : "Copy email"}
                 </button>
-                <span className="copy-pill" style={{ marginLeft: 10 }}>website · app · game · bot</span>
+                <span className="copy-pill" style={{ marginLeft: 10 }}>website · app · prototype · bot</span>
               </div>
             </div>
           </m.section>

@@ -35,7 +35,7 @@ export const metadata = {
     template: "%s | Astralune",
   },
   description:
-    "Astralune adalah portfolio developer untuk digital worlds, media platforms, game systems, dan jasa pembuatan website, aplikasi, game, serta bot WhatsApp / Discord / Telegram dan auto responder website.",
+    "Astralune adalah portfolio developer untuk web platform, media digital, dan eksplorasi prototype game. Buka jasa pembuatan website, aplikasi, prototype / alur game, dan bot WhatsApp / Discord / Telegram serta auto responder website.",
   applicationName: "Astralune",
   generator: "Next.js",
   keywords: [
@@ -69,7 +69,7 @@ export const metadata = {
   openGraph: {
     title: "Astralune",
     description:
-      "Portfolio developer untuk digital worlds, media platforms, game systems, website, aplikasi, game, dan bot WhatsApp / Discord / Telegram.",
+      "Portfolio developer untuk web platform, media digital, prototype game, website, aplikasi, dan bot WhatsApp / Discord / Telegram.",
     url: siteUrl,
     siteName: "Astralune",
     images: [
@@ -85,7 +85,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Astralune",
     description:
-      "Portfolio developer untuk digital worlds, media platforms, game systems, website, aplikasi, game, dan bot WhatsApp / Discord / Telegram.",
+      "Portfolio developer untuk web platform, media digital, prototype game, website, aplikasi, dan bot WhatsApp / Discord / Telegram.",
     images: [openGraphImage],
   },
   robots: {
