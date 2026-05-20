@@ -27,18 +27,18 @@ import { TbApi, TbBrandVscode } from "react-icons/tb";
 
 const portfolioRows = [
   {
-    tag: "[+] project",
     label: "Kudonime",
-    value: "Situs hiburan untuk nonton anime, baca manga, dan nonton film di kudonime.tech.",
     href: "https://kudonime.tech",
-    meta: "Anime · Manga · Film platform",
+    description: "Situs hiburan untuk nonton anime, baca manga, dan nonton film.",
+    meta: "Anime · Manga · Film",
+    accent: "linear-gradient(135deg, #ff7eb6 0%, #ffb347 100%)",
   },
   {
-    tag: "[+] project",
     label: "Astralune Prototype",
-    value: "Project sampingan eksplorasi konsep dan alur game MMORPG fantasy — fokus ke prototype dan game flow, bukan production penuh.",
     href: "#work",
-    meta: "Game prototype · concept exploration",
+    description: "Eksplorasi konsep dan alur game MMORPG fantasy — prototype & game flow.",
+    meta: "Game prototype · concept",
+    accent: "linear-gradient(135deg, #8aa1ff 0%, #c89bff 100%)",
   },
 ];
 
@@ -244,19 +244,23 @@ export default function Home() {
               <a className="inline-link" href="/services">view coding services</a>
             </div>
 
-            <div className="cards-stack">
+            <div className="polaroid-stack">
               {portfolioRows.map((row) => (
                 <a
-                  className="index-card"
+                  className="polaroid"
                   key={row.label}
                   href={row.href}
                   target={row.href.startsWith("http") ? "_blank" : undefined}
                   rel={row.href.startsWith("http") ? "noreferrer" : undefined}
                 >
-                  <span className="tag">{row.tag}</span>
-                  <strong>{row.label}</strong>
-                  <p>{row.value}</p>
-                  <span className="meta">{row.meta}</span>
+                  <div className="polaroid-photo" style={{ background: row.accent }}>
+                    <span className="polaroid-photo-label">{row.label}</span>
+                  </div>
+                  <div className="polaroid-caption">
+                    <strong>{row.label}</strong>
+                    <p>{row.description}</p>
+                    <span className="polaroid-meta">{row.meta}</span>
+                  </div>
                 </a>
               ))}
             </div>
