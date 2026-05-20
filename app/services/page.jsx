@@ -2,7 +2,7 @@ import AppSidebar from "../AppSidebar";
 import { MotionCard, RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
 
-const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
+const openGraphImage = "https://cloud.yardansh.com/9mHeeg.jpg";
 
 const servicePlans = [
   {

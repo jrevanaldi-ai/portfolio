@@ -4,7 +4,7 @@ import { RevealSection } from "../MotionBlocks";
 import SidebarTrigger from "../SidebarTrigger";
 import { FiFile, FiFileText, FiFolder } from "react-icons/fi";
 
-const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
+const openGraphImage = "https://cloud.yardansh.com/9mHeeg.jpg";
 
 const orderChecklist = [
   {

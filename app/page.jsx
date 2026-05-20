@@ -29,6 +29,7 @@ const portfolioRows = [
   {
     label: "Kudonime",
     href: "https://kudonime.tech",
+    previewUrl: "https://kudonime.tech",
     description: "Situs hiburan untuk nonton anime, baca manga, dan nonton film.",
     meta: "Anime · Manga · Film",
     accent: "linear-gradient(135deg, #ff7eb6 0%, #ffb347 100%)",
@@ -36,11 +37,24 @@ const portfolioRows = [
   {
     label: "Astralune Prototype",
     href: "#work",
+    image: "https://cloud.yardansh.com/bumNMq.jpg",
     description: "Eksplorasi konsep dan alur game MMORPG fantasy — prototype & game flow.",
     meta: "Game prototype · concept",
     accent: "linear-gradient(135deg, #8aa1ff 0%, #c89bff 100%)",
   },
 ];
+
+function previewSrc(url) {
+  const params = new URLSearchParams({
+    url,
+    screenshot: "true",
+    meta: "false",
+    embed: "screenshot.url",
+    "viewport.width": "1280",
+    "viewport.height": "960",
+  });
+  return `https://api.microlink.io/?${params.toString()}`;
+}
 
 const stackGroups = [
   {
@@ -254,7 +268,25 @@ export default function Home() {
                   rel={row.href.startsWith("http") ? "noreferrer" : undefined}
                 >
                   <div className="polaroid-photo" style={{ background: row.accent }}>
-                    <span className="polaroid-photo-label">{row.label}</span>
+                    {row.image ? (
+                      <img
+                        className="polaroid-screenshot"
+                        src={row.image}
+                        alt={`${row.label} preview`}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : row.previewUrl ? (
+                      <img
+                        className="polaroid-screenshot"
+                        src={previewSrc(row.previewUrl)}
+                        alt={`${row.label} preview`}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : (
+                      <span className="polaroid-photo-label">{row.label}</span>
+                    )}
                   </div>
                   <div className="polaroid-caption">
                     <strong>{row.label}</strong>

@@ -26,7 +26,7 @@ const fontMono = JetBrains_Mono({
 });
 
 const siteUrl = "https://astralune.cv";
-const openGraphImage = "https://cloud.yardansh.com/2I0F95.jpg";
+const openGraphImage = "https://cloud.yardansh.com/9mHeeg.jpg";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
